@@ -1,0 +1,170 @@
+.mrCont {
+	padding: 0 40px;
+	.seat {
+		height: 60px;
+		line-height: 60px;
+	}
+	.searchBox,.exampleBox{
+		background: #5f7695;
+		border-radius: 7px;
+		padding: 13px 10px 0 10px;
+		//overflow: hidden;
+		color: #fff;
+		font-weight: normal;
+		label{
+			font-weight: normal;
+			padding:7px 0;
+		}		    
+	}
+	.contentBox{
+		margin-top: 20px;
+		border-radius: 7px;
+		background: #fff;
+		.subTitle{
+			height: 40px;
+			line-height: 40px;
+			background: #9daec8;
+			border-top-left-radius: 7px;
+			border-top-right-radius: 7px;
+			padding:0 20px;
+			color: #fff;
+			font-size: 16px;
+			.frMt3{
+				float: right;
+				margin-top: 3px;
+			}
+		}
+		.checkedList{
+			padding-top:7px;
+			li{
+				display: inline-block;
+				padding-right:20px;
+			}
+		}		
+		.selectVillage{
+			border: 1px solid #ddd;
+			border-radius: 5px;
+			.selectTitle{
+				padding: 8px 20px;
+				font-size: 15px;
+				background: #9daec8;
+				border-top-right-radius:5px;
+				border-top-left-radius:5px;
+				color: #fff;
+				position: relative;
+			}
+			.allChecked{
+				position: absolute;
+				top: 0;
+				right: 8px;
+			}
+			.villageList{
+				padding: 5px 10px;
+				label{
+					padding-right:10px;
+				}
+				label:first-child{
+					padding-left:30px;
+				}
+			}
+			.selectedVillage{
+				padding-bottom: 15px;
+			}
+			.selected{
+				height: 30px;
+			    line-height: 30px;
+			    border-bottom: 1px solid #ddd;
+			    padding: 0 20px;
+			    border-top: 1px solid #ddd;
+			    margin-top: 20px;
+			}
+			.clearBtn{
+				float: right;
+				margin-top: 3px;
+			}
+		}
+	}
+	.pictureBox{
+		background: #fff;
+		border-radius: 5px;
+		.subTitle{
+			height: 60px;
+			line-height: 60px;
+			padding: 0 30px;
+			font-size: 16px;
+			background: #5f7695;
+			color: #fff;
+			border-top-left-radius: 5px;
+			border-top-right-radius: 5px;
+		}
+		.picCont{
+			padding: 30px;
+		}
+		.maps{
+			width: 800px;
+			margin: 0 auto;
+			overflow: hidden;
+			.imgBox{
+				width: 650px;
+				height: 450px;
+				border: 1px solid #444;
+				float: left;
+				overflow: hidden;
+				position: relative;
+				div{
+					width: 100%;
+					height: 100%;
+					position: absolute;
+					top: 0;left:0;
+					background-color: rgba(0, 0, 255, 0.5)
+				}
+			}
+		}
+	}
+
+	.manageList{
+		margin-bottom: 10px;
+	}
+	.manageList:first-child{
+		margin-left:0!important;
+	}			
+}
+.contList{
+	padding:20px;
+    clear: both;
+	.table-bordered{
+		text-align: center;
+	}
+	.pages{
+		text-align: center;
+		.pagination > li > a, .pagination > li > span{
+			color: #666;
+		}
+		.pagination > .active > a, .pagination > .active > span, .pagination > .active > a:hover, .pagination > .active > span:hover, .pagination > .active > a:focus, .pagination > .active > span:focus{
+			background:#9daec8;
+			color: #fff;
+		}
+	}
+	td, td img {
+	    vertical-align: middle;
+	}	
+
+	.pagination > li > a, .pagination > li > span{
+		border: none;
+	}
+	.look,.edit,.delete{
+		float: left;
+		margin:0 10px;
+		cursor: pointer;
+	}
+	.look{
+		color: #2ab2e6;
+	}
+	.edit{
+		color: #5e7796;
+	}
+	.delete{
+		color: #e52928;
+		margin-right: 0;
+	}
+}

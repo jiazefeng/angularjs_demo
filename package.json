@@ -1,0 +1,22 @@
+{
+  "author": "Talent Jia",
+  "name": "angular-app-demo",
+  "homepage": "http://www.talent.com",
+  "version": "0.0.1-SNAPSHOT",
+  "engines": {
+    "node": ">= 0.8.4"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-connect":"*",
+    "gulp-jshint":"*",
+    "gulp-ng-html2js":"*",
+    "gulp-sourcemaps":"*",
+    "gulp-less": "*",
+    "gulp-csso": "*",
+    "gulp-clean": "*",
+    "gulp-concat":"*",
+    "gulp-uglify":"*"
+  }
+}

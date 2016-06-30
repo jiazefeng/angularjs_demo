@@ -1,0 +1,28 @@
+<nav class="navbar navbar-default">
+	<div class="container-fluid">
+		<div class="navbar-brand"><span class="color1">农业信息</span>平台</div>
+		<div class="collapse navbar-collapse">
+			<div class="nav navbar-nav navbar-right">{{data.date}}  您好，<span class="colorBlue">{{userInfo.userName}}</span>  <a href="#" class="edit">修改密码</a> <span class="quit">退出</span></div>
+		</div>
+		
+	</div>
+</nav>
+<div class="row mr-homeNav">
+	<div class="col-md-2 leftMenu">
+		<uib-accordion close-others="oneAtATime" class="mr-navList">
+		    <uib-accordion-group ng-repeat="type in data" is-open="type.open" uib-collapse="isCollapsed" ng-click="changeType(type.name);">
+		        <uib-accordion-heading>
+		        	<i class="fa fa-{{type.icon}}" aria-hidden="true"></i>
+		        	<span class="visible-md visible-lg">{{type.name}} </span>
+		        </uib-accordion-heading>
+				<ul class="navList" uib-collapse="isCollapsed">
+					<li ng-repeat="classify in type.classify" ng-class="{'active':curType == classify.classifyName}" ng-click="selectType(classify.classifyName)" ><a href="{{classify.classifyUrl}}" class="mrBookmark">{{classify.classifyName}}</a></li>
+				</ul>  
+		    </uib-accordion-group>
+		</uib-accordion>
+	</div>
+	<div class="col-md-10 mrCont pull-right">
+		<div class="seat">您当前的位置是：{{nowParentname}} <span ng-if="nowstatename"> > {{nowstatename}}</span></div>
+		<div ui-view="content"></div>
+	</div>
+</div>

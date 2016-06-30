@@ -1,0 +1,136 @@
+* {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+/*	-webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+	-webkit-appearance: none;*/
+	font-family: "Helvetica Neue", Helvetica, "Hiragino Sans GB", "Microsoft YaHei", Arial, sans-serif;
+	font-style: normal;
+	outline: none;
+}
+a {
+	appearance: none;
+	tap-highlight-color: rgba(255, 255, 255, 0);
+	-webkit-appearance: none;
+	-webkit-tap-highlight-color: rgba(255, 255, 255, 0);	
+}
+a {
+	text-decoration: none;
+	outline: none;
+}
+a:hover, a:focus {
+	text-decoration: none;
+}
+a:focus {
+  outline: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-size: 18px;
+	padding:0;
+	margin: 0;
+	font-weight: normal;
+	font-family: "Helvetica Neue", Helvetica, "Hiragino Sans GB", "Microsoft YaHei", Arial, sans-serif;
+}
+input[type="text"], input[type="checkBox"], input[type="password"], button {
+	outline: none;
+}
+.size(@width;@height) {
+	width: @width;
+	height: @height;
+}
+.row{
+	margin: 0;
+	padding:0;
+}
+@-moz-document url-prefix() {
+  fieldset { display: table-cell; }
+}
+.mr10{
+	margin-right: 15px;
+}
+.mt20{
+	margin-top: 20px;
+}
+.mt10{
+	margin-top: 10px;
+}
+.ml15{
+	margin-left: 15px;
+}
+
+@screen-xs-max:768px;
+@screen-sm-max:992px;
+@screen-lg-min:1200px;
+
+
+@media (max-width: @screen-xs-max) { 
+	.mr-homeNav{
+		padding-left: 13%;
+	}
+}
+@media (min-width: @screen-xs-max) and (max-width: @screen-sm-max) { 
+	.mr-homeNav{
+		padding-left: 18%;
+	}
+	.visible-md {
+	    display: inline-block !important;
+	}
+}
+@media (min-width: @screen-sm-max) and (max-width: @screen-lg-min) { 
+	.visible-md {
+	    display: inline-block !important;
+	}
+}
+@media (min-width: @screen-lg-min) { 
+	.visible-lg {
+	    display: inline-block !important;
+	}
+}
+
+.modal-dialog {
+    margin: 100px auto;
+}
+
+
+.width100{
+	width: 100px;
+}
+
+.modalBox{
+	background: #f4f7fc;
+	border-radius: 6px;
+	.modal-header{
+	    height: 40px;
+	    line-height: 40px;
+	    background: #9daec8;
+	    border-top-left-radius: 6px;
+	    border-top-right-radius: 6px;
+	    padding: 0 20px;
+	    color: #fff;
+	    .modal-title{
+		    height: 40px;
+		    line-height: 40px;
+		    font-size: 14px;	    	
+	    }
+	}
+	.modal-footer{
+		text-align: center;
+		clear: both;
+	    height: 46px;
+	    line-height: 46px;
+	    background: #e1e8f2;
+	    border-bottom-left-radius: 6px;
+	    border-bottom-right-radius: 6px;	
+	    padding: 0;    		
+	}
+	.btn-warning{
+		background: #ddd;
+		border: 1px solid #ccc;
+	}
+	.btn-warning:hover{
+		background: #ddd;
+		border: 1px solid #ccc;		
+	}
+
+}

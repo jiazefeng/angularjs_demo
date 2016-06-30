@@ -1,0 +1,176 @@
+body{
+	background: #e9eef4;
+	position: relative;
+}
+.navbar-default {
+    background-color: #000;
+    border-radius: 0;
+    border-color: #000;
+    border-bottom:1px solid #e7e7e7;
+    margin:0;
+    position: fixed;
+    z-index: 999;
+    width: 100%;
+    .navbar-brand{
+    	line-height: 60px;
+    }
+    .navbar-brand,.navbar-nav{
+	    color: #fff;
+	    height: 80px;
+	    padding: 7px 20px;
+	    .color1{
+	    	color:#3ab9e6;
+	    	font-size: 26px;
+	    }
+	    .colorBlue{
+	    	color: #28b4e7;
+	    }
+	    .edit,.quit{
+	    	color: #fff;
+	    	cursor: pointer;
+	    }
+    }
+    .navbar-brand:hover{
+    	color: #fff;
+    }
+}
+.input-group-addon{
+	background: #9daec8;
+	color: #fff;
+}
+.mr-homeNav{
+	padding-top: 80px;
+	.leftMenu{
+		background: #314256;
+		padding:0;
+		position: fixed;
+		height: 100%;
+		top:80px;
+		left:0;
+	}
+	.mr-navList{
+	    .panel-open{
+	    	.panel-heading{
+	    		background: #3ab9e6;
+	    	}
+	    }		
+		.panel-heading{
+			padding: 0;
+			background: #5f7695;
+			color: #fff;
+			.panel-title{
+				height: 60px;
+				line-height: 60px;
+				white-space: nowrap;
+				overflow: hidden;
+				text-overflow: ellipsis;		
+				a{
+					display: block;
+					padding:0 20px;
+				}
+				.pull-right{
+					top:13px;
+				}	
+				.fa{
+					width: 30px;
+				}	
+			}
+		}
+		.panel-default{
+			border: none;
+			margin: 0;
+			border-bottom: 1px solid #354256;
+			border-radius: 0;
+			background: none;
+			a{
+				color: #fff;
+			}
+			
+		}
+		.panel-body{
+			padding: 0;
+		}
+		.navList{
+			margin: 10px 0;
+			li{
+				line-height: 35px;
+				a{
+					padding: 0 5px;
+					display: block;
+					padding-left: 55px;
+				}
+			}
+			.active{
+				a.mrBookmark{
+					background: #485d7a;
+					color: #fff;					
+				}
+			}
+			li:last-child{
+				border-bottom:none;
+			}
+		}
+		.menuList{
+			dt{
+				padding-left: 10%;
+			}
+			.active{
+				a{
+					background: #485d7a;
+					color: #fff;					
+				}
+			}			
+		}
+	}
+}
+.selectTit{
+	background: #9daec8;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    padding: 3px 20px;
+    color: #fff;
+    font-size: 16px;
+    overflow: hidden;
+}
+.upDown{
+	float: right;
+	width: 40%;
+	text-align: right;
+	margin: 0;
+	cursor: pointer;
+	span{
+		margin-top: 3px;
+	    font-size: 19px;
+	    height: 23px;
+	    width: 23px;
+	    display: inline-block;
+	    text-align: center;
+	    border: 2px solid #fff;
+	    border-radius: 30px;
+	    line-height: 19px;
+	}
+}
+.selectCont{
+    padding:10px 20px;
+    overflow: hidden;	
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;   
+    background: #fff; 
+    border: 1px solid #ddd;
+    label{
+    	margin-right: 25px;
+    	margin-left:0!important;
+    }
+}
+//上传图片样式
+#fileList{
+	overflow: hidden;
+	clear: both;
+	.thumbnail {
+		float: left;
+		width: 110px;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+}

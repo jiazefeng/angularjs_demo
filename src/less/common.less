@@ -11,6 +11,19 @@ body{
     position: fixed;
     z-index: 999;
     width: 100%;
+    a{
+    	color: #fff;
+    }
+	.curVillage{
+		padding: 0;
+		line-height: 62px;
+		.col-md-7,.col-md-6,.col-md-5{
+			padding: 0;
+		}
+		.village{
+			margin-top: 14px;
+		}
+	}    
     .navbar-brand{
     	line-height: 60px;
     }
@@ -18,6 +31,12 @@ body{
 	    color: #fff;
 	    height: 80px;
 	    padding: 7px 20px;
+	    .userStyle{
+	    	height: 27px;
+		    line-height: 44px;
+		    display: block;
+		    font-size: 16px;
+	    }
 	    .color1{
 	    	color:#3ab9e6;
 	    	font-size: 26px;
@@ -33,13 +52,95 @@ body{
     .navbar-brand:hover{
     	color: #fff;
     }
+	.uLogo{
+	    height: 40px;
+	    width: 40px;
+	    display: block;
+	    background: url(../images/icon/robot.png) no-repeat center center;
+	    background-size: 40px;
+	    cursor: pointer;
+	    margin-top: 10px;
+	    border-radius: 5px;
+	    overflow: hidden;
+	} 
+	.popover.bottom{
+		.arrow:after {
+		    border-bottom-color: #68d4fe;
+		}
+	}
+
+	.infoStyle{
+		height: 98px;
+		width: 200px;
+		border-radius: 8px;
+		background: #68d4fe;
+		border: 1px solid #68d4fe;
+		box-shadow: 0 1px 5px #777;
+		margin-top: 15px;
+		.info{
+			height: 65px;
+			overflow: hidden;
+			padding: 12px;
+			padding-bottom: 0;
+			margin: 0;
+			dd{
+				float: left;
+				h4{
+					font-size: 18px;
+    				line-height: 22px;
+    				height: 26px;
+				}
+				p{
+				    font-size: 12px;
+				    color: #2297c3;	
+				    text-decoration: underline;	
+				    cursor: pointer;			
+				}
+			}
+			dt{
+			    float: left;
+			    margin-right: 8px;
+			}
+			span{
+				height: 40px;
+				width: 40px;
+				display: inline-block;
+				background: url(../images/icon/robot.png) no-repeat center center;
+				background-size:40px;	
+				overflow: hidden;			
+			}
+		}
+		ul{
+			clear: both;
+			height: 30px;
+			line-height: 30px;
+			background: #fff;
+			border-bottom-left-radius: 8px;
+			border-bottom-right-radius: 8px;
+			li{
+				float: left;
+				width: 50%;
+				text-align: center;
+				color: #666;
+				cursor: pointer;
+				a{
+					display: block;
+					color: #666;
+					border-right: 1px solid #68d4fe;
+				}
+			}
+			li:active{
+				color: #68d4fe;
+			}
+		}		
+	}   
 }
 .input-group-addon{
 	background: #9daec8;
 	color: #fff;
 }
 .mr-homeNav{
-	padding-top: 80px;
+	padding-top: 60px;
 	.leftMenu{
 		background: #314256;
 		padding:0;
@@ -47,9 +148,50 @@ body{
 		height: 100%;
 		top:80px;
 		left:0;
+		width: 190px;
+		z-index: 999;
 	}
 	.mr-navList{
-	    .panel-open{
+		.menu{
+			background: #6a83a1;
+			height: 60px;
+			line-height: 60px;
+			display: block;
+			color: #fff;
+			font-size: 16px;
+			i{
+				width: 60px;
+				text-align: center;
+				background: rgba(255,255,255,0.3);
+				line-height: 60px;
+				margin-right: 5px;
+			}
+		}
+		.childMenu{
+			height: 34px;
+			line-height: 34px;
+			display: block;
+			color: #fff;
+			padding-left: 60px;
+			background: url(../images/imgs/icon.png) no-repeat 20px center;
+			background-size:20px; 
+		}
+		.threeMenu{
+			height: 34px;
+			line-height: 34px;
+			display: block;
+			padding-left: 70px;
+			color: #fff;
+		}
+		.activeMenu{
+			background: #29b2e6;
+		}
+		.activeChildMenu{
+			background:#485d7a url(../images/imgs/icon.png) no-repeat 20px center;
+			background-size:20px; 			
+		}
+
+/*	    .panel-open{
 	    	.panel-heading{
 	    		background: #3ab9e6;
 	    	}
@@ -120,7 +262,7 @@ body{
 					color: #fff;					
 				}
 			}			
-		}
+		}*/
 	}
 }
 .selectTit{
@@ -173,4 +315,9 @@ body{
 		overflow: hidden;
 		text-overflow: ellipsis;
 	}
+}
+.opacityDiv{
+	opacity: 0;
+	position: absolute;
+	top:-1000px;
 }

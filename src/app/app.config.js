@@ -3,7 +3,7 @@ angular.module('robot.app.config', [
 ])
 
 //contants
-.constant('ApiBaseUrl', 'http://127.0.0.1:8080/')
+.constant('ApiBaseUrl', 'http://localhost:8080/')
 // .constant('ApiBaseUrl', 'http://lifeowner.robot.cn/')
 .constant('AppDefaultRootUrl', '/home/index')
 .constant('HTTP_COMMON_ERROR_MESSAGE', '服务器请求返回错误!')

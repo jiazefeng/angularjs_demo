@@ -7,7 +7,9 @@ angular.module('robotSupervise.app', [
     'robot.common',
     'robot.home',
     'robot.userManage',
-    'robot.roleManage'
+    'robot.roleManage',
+    'robot.menuManage',
+    'mgcrea.ngStrap.modal'
 ])
 
 .run(['$rootScope', '$httpBackend','mrBookMarksService',

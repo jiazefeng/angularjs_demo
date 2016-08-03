@@ -58,46 +58,45 @@ input[type="text"], input[type="checkBox"], input[type="password"], button {
 .ml15{
 	margin-left: 15px;
 }
-
+.pd0{
+	padding:0;
+}
+.pt10{
+	padding-top:10px!important;
+}
+.inlineBlock{
+	display: inline-block;
+}
+.warn{
+	color:#f00;
+}
 @screen-xs-max:768px;
 @screen-sm-max:992px;
 @screen-lg-min:1200px;
 
 
-@media (max-width: @screen-xs-max) { 
-	.mr-homeNav{
-		padding-left: 13%;
-	}
-}
-@media (min-width: @screen-xs-max) and (max-width: @screen-sm-max) { 
-	.mr-homeNav{
-		padding-left: 18%;
-	}
-	.visible-md {
-	    display: inline-block !important;
-	}
-}
-@media (min-width: @screen-sm-max) and (max-width: @screen-lg-min) { 
-	.visible-md {
-	    display: inline-block !important;
-	}
-}
-@media (min-width: @screen-lg-min) { 
-	.visible-lg {
-	    display: inline-block !important;
-	}
-}
-
 .modal-dialog {
     margin: 100px auto;
 }
-
+.btn-primary{
+	background: #29b2e6;
+	border-color: #2eb0e1;
+}
+.btn-primary:hover{
+	background: #0296d4;
+	border-color: #21a3d3;	
+}
 
 .width100{
 	width: 100px;
 }
-
-.modalBox{
+.width80-25{
+	width: 80px!important;
+    padding: 0;
+    height: 25px;
+    display: inline-block;
+}
+.modalBox,.modal-open .modal{
 	background: #f4f7fc;
 	border-radius: 6px;
 	.modal-header{
@@ -108,11 +107,20 @@ input[type="text"], input[type="checkBox"], input[type="password"], button {
 	    border-top-right-radius: 6px;
 	    padding: 0 20px;
 	    color: #fff;
+	    .close{
+	    	display: none;
+	    }
 	    .modal-title{
 		    height: 40px;
 		    line-height: 40px;
-		    font-size: 14px;	    	
+		    font-size: 15px;	    	
 	    }
+	}
+	.modal-body{
+		overflow: hidden;
+		padding: 25px 15px;
+		clear: both;
+		text-align: center; 
 	}
 	.modal-footer{
 		text-align: center;
@@ -132,5 +140,26 @@ input[type="text"], input[type="checkBox"], input[type="password"], button {
 		background: #ddd;
 		border: 1px solid #ccc;		
 	}
-
 }
+.modal-open .modal{
+	background: rgba(0,0,0,0.2);
+	.modal-body{
+		background: #f4f7fc;
+	}
+	.modal-footer{
+		.btn-default{
+			width: 100px;
+			color: #fff;
+			background: #29b2e6;
+    		border-color: #2eb0e1;
+		}
+		.btn-default:hover{
+			background: #0296d4;
+			border-color: #21a3d3;	
+		}
+	}
+}
+.modal-backdrop{
+	background: rgba(0,0,0,0.2);
+}
+

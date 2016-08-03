@@ -1,0 +1,32 @@
+<div class="contentBox">
+	<div class="subTitle">菜单列表<a type="button" class="btn btn-primary frMt3" href="/home/addMenu"> <i class="fa fa-plus-square-o" aria-hidden="true"></i>  添加菜单 </a></div>
+	<div class="contList">
+		<table class="table table-bordered table-condensed">
+			<tr>
+				<td>菜单名称</td>
+				<td>导航节点</td>
+				<td>菜单URL</td>
+				<td>所属菜单</td>
+				<td>所在层级</td>
+				<td>排序</td>
+				<td>操作</td>
+			</tr>
+			<tr ng-repeat="menu in data.menuList">
+				<td>{{menu.mName}}</td>
+				<td ng-if="menu.mIfNavigationNode == 0">否</td>
+				<td ng-if="menu.mIfNavigationNode == 1">是</td>
+				<td>{{menu.mUrl}}</td>
+				<td>{{menu.mParentName}}</td>
+				<td>{{menu.mLayer}}</td>
+				<td>{{menu.mOrder}}</td>
+				<td>
+					<p class="edit"><i class="fa fa-edit" aria-hidden="true"></i>编辑</p>
+					<p class="delete" ng-click="delete(menu.mId,$index)"><i class="fa fa-trash-o" aria-hidden="true"></i>删除</p>
+				</td>
+			</tr>
+		</table>
+		<div class="pages" ng-if="data.count >0">
+			<uib-pagination total-items="data.count" ng-model="data.page" num-pages="numPages" class="pagination-sm" max-size="maxSize"  force-ellipses="true" previous-text="上一页" next-text="下一页"></uib-pagination><!-- ng-change="commitCont();" -->
+		</div>
+	</div>
+</div>

@@ -1,5 +1,15 @@
 .diagramCont{
 	position: relative;
+	.line{
+		background: rgba(247, 144, 22, 0.6);
+		z-index: 0;
+	}
+	.line:hover{
+		background: rgba(247, 144, 22, 0.6)!important;
+	}
+	.points{
+		display:none!important;
+	}
 	img{
 		width: 100%;
 		border-radius: 6px;
@@ -16,7 +26,8 @@
 		color: #fff;
 		.table > thead > tr > th, .table > tbody > tr > th, .table > tfoot > tr > th, .table > thead > tr > td, .table > tbody > tr > td, .table > tfoot > tr > td{
 			border-top: none;
-			border-bottom: 1px solid #ddd;	
+			border-bottom: 1px solid #ddd;
+			min-width:100px;	
 		}
 		tr{
 			border-top-left-radius: 7px;
@@ -48,3 +59,21 @@
 		}		
 	}
 }
+.plan{
+	position: relative;
+	margin-bottom: 5px;
+}
+.del{
+    position: absolute;
+    top: 0;
+    right: -24px;
+    background: url(../images/imgs/del1.png) no-repeat center center;
+    background-size: 14px;
+    width: 25px;
+    height: 33px;
+    display: block;
+    cursor: pointer;
+}
+
+
+

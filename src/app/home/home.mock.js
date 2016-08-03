@@ -5,32 +5,18 @@ angular.module('robot.home.mock', [
 
     .run(['$httpBackend', 'mocksData', function ($httpBackend, mocksData) {
         var data = [
+            {
+                "name": "菜单管理",
+                "icon": "arrows-alt",
+                "classify": [
+                    {
+                        "classifyName": "菜单管理",
+                        "classifyUrl": "/home/menu",
+                        "classifyId": "1"
+                    }
+                ]
+            },
             //{
-            //    "name": "机器人管理",
-            //    "icon": "arrows-alt",
-            //    "classify": [
-            //        {
-            //            "classifyName": "小区配置管理",
-            //            "classifyUrl": "/home/district",
-            //            "classifyId": "1",
-            //            "menuList": [
-            //                {
-            //                    "classifyName": "机器人配置管理",
-            //                    "classifyUrl": "/home",
-            //                    "classifyId": "1"
-            //                }
-            //            ]
-            //        }, {
-            //            "classifyName": "方案管理",
-            //            "classifyUrl": "/home",
-            //            "classifyId": "1"
-            //        }, {
-            //            "classifyName": "机器人配置管理",
-            //            "classifyUrl": "/home",
-            //            "classifyId": "1"
-            //        }
-            //    ]
-            //}, {
             //    "name": "信息管理",
             //    "icon": "commenting-o",
             //    "classify": [

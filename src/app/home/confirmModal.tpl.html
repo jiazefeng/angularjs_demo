@@ -1,0 +1,15 @@
+<div class="modal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header" ng-show="title">
+                <h4 class="modal-title" ng-bind="title"></h4>
+            </div>
+            <div class="modal-body" ng-bind="content"></div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary width100" ng-click="confirm()">确定</button>
+                <button type="button" class="btn btn-warning width100" ng-click="$hide()">取消</button>
+            </div>
+        </div>
+    </div>
+</div>
+ 

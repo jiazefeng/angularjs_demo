@@ -26,6 +26,17 @@
         position: absolute;
         top:18px;
     }
+    .pointCont{
+        span{
+            padding: 1px 3px;
+            color: #fff;
+            min-width: 114px;
+            border-radius: 4px;
+            display: block;
+            background: rgba(49, 66, 87, 0.65);
+            font-size: 12px;
+        }
+    }
     .beacon {
         position: absolute;
         width: 30px;
@@ -64,15 +75,13 @@
             position: absolute;
             top: 20px;                
         }
-        .des{
-            position: absolute;
-            top: -3px;
-            left: 17px;
-            width: 40px;
-            color: #f00;
-        }
-    }       
 
+    }       
+    .des{
+        width: 50px;
+        display: inline-block;
+        padding-left: 15px;
+    }
     .yellow{
         background: url(../images/maps/icon1.png) center center no-repeat!important;
         background-size: 25px!important;
@@ -89,15 +98,56 @@
     .rightWay{
         background: url(../images/maps/right.png) repeat-x!important;
         background-size: 20px 100% !important;
+    } 
+    .point{
+        background: url(../images/imgs/charge1.png) center center no-repeat!important;
+        background-size: 13px!important;
+        width: 14px!important;
+        height: 14px!important;
+        position: absolute;
+        transform: translate3d(-50%, -50%, 0);
+        -ms-transform: translate3d(-50%, -50%, 0);
+        -moz-transform: translate3d(-50%, -50%, 0);
+        -webkit-transform: translate3d(-50%, -50%, 0);
+        -o-transform: translate3d(-50%, -50%, 0);
+        cursor: move;                   
+    }   
+    .red{
+        background: url(../images/imgs/charge.png) center center no-repeat!important;
+        background-size: 13px!important;
+        width: 14px!important;
+        height: 14px!important;
+        position: relative;        
+    } 
+    .robotStyle{
+        background: url(../images/icon/robot1.png) center center no-repeat!important;
+        background-size: 30px!important;
+        width: 30px!important;
+        height: 30px!important;
+        position: relative;     
+        cursor: pointer!important;      
     }
     .blue{
-        background: #1d32d0!important;
-        width: 16px!important;
-        height: 16px!important;         
-    } 
-    .hover{
-        background: #afb7eb!important;
+        background: url(../images/imgs/charge1.png) center center no-repeat!important;
+        background-size: 13px!important;
+        width: 14px!important;
+        height: 14px!important;
+        position: relative;        
+    }         
+    .taskLine{
+        position: absolute;
+        height: 3px;
+        transform-origin: 0;
+        -ms-transform-origin: 0;
+        -moz-transform-origin: 0;
+        -webkit-transform-origin: 0;
+        -o-transform-origin: 0;
+        margin-top: -2px;        
+        background: #29b2e6!important;   
     }
+    .taskLine:hover{
+        background: #29b2e6!important;    
+    }    
     .disabledStyle{
         background: #bbb;
         color: #fff;
@@ -119,15 +169,17 @@
     }
     .setPos{
         position: relative;
+        padding: 0;
     }
     .changeMap{
         position: absolute;
-        bottom: 40px;
-        right: 60px;
+        bottom: 45px;
+        right: 30px;
         width: 32px;
         padding: 4px;
         border: 1px solid #999;
         background: #fff;
+        z-index: 30;
     }
     .toBig{
         background: url(../images/maps/max1.png) no-repeat center center;
@@ -162,10 +214,9 @@
     }
 
     .cursorBtns{
-        background: #314256 url(../images/maps/control.png) no-repeat center center;
         background-size: 70%;
         padding: 50px;
-        height: 400px;
+        height: 300px;
         width: 100%;
         position: relative;
         .topBtn{
@@ -214,9 +265,77 @@
         li{
             display: inline-block;
         }
-    }
+    }    
 }
 .clearfix{
     clear: both;
 }
+.positionDiv{
+    width: 300px;
+    max-width: 330px;
+    background: rgba(87,100,113,0.8);
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 8px 15px;
+    top: 10px;
+    left: 15px;
+    position: absolute;
+    z-index: 300;
+    .coordsDiv{
+        color: #fff;
+        border-bottom:2px solid #8d969f;
+        padding: 8px 0;
+        .coordsNum{
+            height: 22px;
+            line-height: 22px;
+            font-size: 15px;
+            color: #fff;
+            background: rgba(255,255,255,0.4);
+            border-radius: 5px;
+            margin-top: 4px;
+            padding-left: 6px;
+        }
+    }
+    .selectRobot{
+        .selectDiv{
+            width: 125px;
+            height: 22px;
+            padding: 0;
+            margin: 0 3px;  
+            display: inline-block;      
+        }
+    }
+    .positionNum{
+        display: inline-block;
+        width: 103px;
+        margin: 0px 10px 0 4px;
+        background: none;
+        border: none;
+    }       
+}
+.popover.right > .arrow{
+    border-right-color: rgba(87, 100, 113, 0.7)!important;
+}
+.popover.right > .arrow:after{
+    border-right-color: rgba(87, 100, 113, 0.1)!important;
+}    
+
+.robotInfo{
+    padding: 0;
+    border: none;
+    width: 400px;
+    max-width: 400px;
+    background: rgba(87,100,113,0.8);  
+    color: #fff;
+    table{
+        width: 200px;
+        float: left;
+        margin: 0;
+    }
+    td{
+        border: 1px solid #8e97a0;
+        text-align: center;
+    }
+}
+
  

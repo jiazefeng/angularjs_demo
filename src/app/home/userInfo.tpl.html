@@ -1,0 +1,15 @@
+<div class="infoStyle popover">
+    <div class="arrow"></div>
+    <dl class="info">
+        <dt><span><img ng-src="{{userInfo.uLogo}}" /></span></dt>
+        <dd>
+            <h4>{{userInfo.uName}}</h4>
+            <p ng-click="openPWDModal(lg)">修改密码</p>
+        </dd>
+    </dl>
+    <ul>
+        <li><a ng-click="goTo(userInfo.id)">个人设置</a></li>
+        <li ng-click="logout()">退出</li>
+    </ul>
+</div>
+ 

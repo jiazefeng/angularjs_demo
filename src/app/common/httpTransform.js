@@ -16,17 +16,20 @@ angular.module('robot.common.httpTransform', [
         response: function(response) {
             if (!!response.config.url.match('.tpl.html'))
                 return response;
+
             if (response.data && response.data.code === 0) {
                 response.data = response.data.data;
                 return response;
             } else if (response.data.msg) {
-                   $rootScope.$broadcast('tokenBug', [response.data.msg]);
+                $rootScope.$broadcast('tokenBug', [response.data.msg]);
                 return $q.reject({
                     data: response.data.msg,
                     status: response.status,
                     headers: response.headers
                 });
             } else {
+                //alert('数据加载失败~~');
+                $rootScope.$broadcast('tokenBug', ['数据加载失败']);
                 return $q.reject(response);
             }
         },

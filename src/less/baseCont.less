@@ -1,8 +1,9 @@
 .mrCont {
-	padding: 0 40px;
+	padding: 0 25px 0 210px;
 	.seat {
 		height: 60px;
 		line-height: 60px;
+		padding-top: 20px;
 	}
 	.searchBox,.exampleBox{
 		background: #5f7695;
@@ -83,10 +84,50 @@
 				margin-top: 3px;
 			}
 		}
+		.carve{
+			display: inline-block;
+    		margin-right: 20px;
+		}
+		.robotInfoList{
+			clear:both;
+			overflow: hidden;
+			.robot{
+				float: left;
+				margin-left: 7px;
+				margin-right: 25px;
+				.findWay{
+				    display: inline-block;
+				    background: #29b2e6;
+				    color: #fff;
+				    border-radius: 5px;
+				    padding: 1px 6px;
+				    border: none;
+				}
+				.disabledBtn{
+					cursor: not-allowed;
+    				background: #bbb;
+				}
+			}
+		}
+	    .radioCont{
+	        background: #fff;
+	        position: relative;
+	    }
+	    .contList{
+	    	.table-bordered > thead > tr > th, .table-bordered > tbody > tr > th, .table-bordered > tfoot > tr > th, .table-bordered > thead > tr > td, .table-bordered > tbody > tr > td, .table-bordered > tfoot > tr > td{
+	    		min-width:100px;
+	    	}
+	    }		
 	}
 	.pictureBox{
 		background: #fff;
 		border-radius: 5px;
+		display: inline-block;
+		float: left;
+		.webuploader-pick{
+		    padding: 7px 15px;
+		    margin-right: 3px;
+		}
 		.subTitle{
 			height: 60px;
 			line-height: 60px;
@@ -132,6 +173,7 @@
 .contList{
 	padding:20px;
     clear: both;
+    position:relative;
 	.table-bordered{
 		text-align: center;
 	}
@@ -166,5 +208,145 @@
 	.delete{
 		color: #e52928;
 		margin-right: 0;
+	}	
+
+	#imgbox{
+		.line1{
+			background: rgba(247,144,22,0.6);
+		}
+		.line1:hover{
+			background: rgba(247,144,22,0.6)!important;
+		}			
 	}
+}
+.controlBtns{
+    position: absolute;
+    height: 125px;
+    bottom: 20px;
+    width: 100%;
+    left: 0;
+    .hand{
+    	height: 50px;
+    	width: 50px;
+    	background: rgba(49, 66, 87, 0.65) url(../images/icon/hand.png) no-repeat center center;
+    	background-size: 47px;
+    	border-radius: 50px;
+    	margin: 0 auto;
+    	cursor: pointer;
+    }
+    .btnList{
+    	border-radius: 5px;
+    	margin: 0 auto;
+        width: 150px;
+        border: 1px solid #fff;
+        background: rgba(49,66,87,0.65);
+        height: 120px;
+        position: relative;
+        .topCont,.bottomCont{
+        	height: 35px;
+
+        }
+        .centerCont{
+        	height: 45px;
+        }
+        .runGo,.runLeft,.runRight,.runBack,.close{
+        	display: block;
+        	height: 35px;
+        	width: 50px;
+        	margin: 0 auto;
+        	text-align: center;
+        	cursor: pointer;
+        }
+        .runLeft,.runRight,.stop{
+			width: 33.333333333%;
+		    height: 45px;
+		    line-height: 45px;
+		    float: left;
+		    text-align: center;
+        }
+        .stop{
+		    background: rgba(255,255,255,0.3);
+		    border-radius: 5px;
+		    height: 45px;
+		    width: 33.333333333%;
+		    line-height: 45px;
+		    color: #fff;
+		    font-size: 16px;              	
+        }
+        .close{
+        	background: url(../images/icon/del2.png) no-repeat center center;
+        	background-size:20px;	
+        	position: absolute;
+        	top:0px;
+        	right: 0px;                	
+        }
+        .runGo{
+        	background: url(../images/icon/top.png) no-repeat center center;
+        	background-size:25px;
+        }
+        .runBack{
+        	background: url(../images/icon/bottom.png) no-repeat center center;
+        	background-size:25px;
+        }
+        .runLeft{
+        	background: url(../images/icon/left.png) no-repeat center center;
+        	background-size:25px;
+        }
+        .runRight{
+        	background: url(../images/icon/right.png) no-repeat center center;
+        	background-size:25px;
+        }
+        .runGo:hover{
+        	background: url(../images/icon/top1.png) no-repeat center center;
+        	background-size:25px;
+        }
+        .runBack:hover{
+        	background: url(../images/icon/bottom1.png) no-repeat center center;
+        	background-size:25px;
+        }
+        .runLeft:hover{
+        	background: url(../images/icon/left1.png) no-repeat center center;
+        	background-size:25px;
+        }
+        .runRight:hover{
+        	background: url(../images/icon/right1.png) no-repeat center center;
+        	background-size:25px;
+        }
+
+    }
+}
+.clearPosition{
+	position: initial;
+	.btnList{
+		width: 80%;
+		height: 180px;
+		.topCont,.centerCont,.bottomCont{
+			height: 60px;
+			line-height: 60px;
+		}
+		.runGo,.runLeft,.stop,.runRight,.runBack{
+			height: 60px;
+			line-height: 60px;
+			background-size: 30px;
+			font-size: 20px;
+		}
+	}
+}	
+.goIndex{
+	cursor: pointer;
+}
+.task{
+	padding-top: 0!important;
+}
+.calendar{
+  margin-top:20px;
+  border: 1px solid #ddd;
+}
+.calendar h1{
+  background-color: #dddddd;
+  padding: 6px;
+}
+.watch{
+  max-height: 400px;
+  overflow-y: auto;
 }

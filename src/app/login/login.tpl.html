@@ -1,0 +1,40 @@
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-brand"><span class="color1">Agricultural information management system</span></div>
+    </div>
+</nav>
+<div class="loginBox">
+    <div class="container">
+        <div class="titleStyle text-center">
+            用户登录
+        </div>
+        <div class="row">
+            <form class="form-horizontal" name="myForm" ng-submit="commitCont(myForm);">
+                <div class="form-group">
+                    <label for="inputEmail3" class="col-sm-2 control-label">用户名：</label>
+                    <div class="col-sm-10">
+                        <input type="text" ng-model="userName" required maxlength="30" class="form-control" placeholder="请输入用户名" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="inputPassword3" class="col-sm-2 control-label">密码：</label>
+                    <div class="col-sm-10">
+                        <input type="password" ng-model="pwd" required maxlength="30" class="form-control" placeholder="请输入密码" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-3">
+                        <button type="submit" class="btn btn-default btn-primary width100">登录</button>
+                    </div>
+<!--                     <div class="col-sm-3 col-sm-offset-4">
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox"> 记住密码
+                            </label>
+                        </div>
+                    </div>  -->       
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

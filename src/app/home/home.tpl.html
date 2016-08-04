@@ -1,105 +1,53 @@
 <nav class="navbar navbar-default">
-	<div class="container-fluid">
-		<div class="navbar-brand"><span class="color1">农业信息</span>平台</div>
-		<div class="collapse navbar-collapse">
-			<div class="nav navbar-nav navbar-right">{{data.date}}  您好，<span class="colorBlue">{{userInfo.userName}}</span>  <a href="#" class="edit">修改密码</a> <span class="quit">退出</span></div>
-		</div>
-
-	</div>
+    <div class="container-fluid">
+        <div class="navbar-brand"><a href="/home/index"><span class="color1">迈动机器人</span>开发平台</a></div>
+        <div class="collapse navbar-collapse">
+            <div class="nav navbar-nav navbar-right">
+                <div class="form-horizontal">
+                    <div class="col-md-2 col-sm-2 col-xs-2 pull-right">
+                        <div class="charges red" trigger="click"  data-autoClose=true data-template-url="home/userInfo.tpl.html" data-auto-close="1" data-animation="am-flip-x" data-placement="bottom" bs-popover>
+                            <span class="uLogo"><img src="{{userInfo.uLogo}}" /></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </nav>
-<div class="mr-homeNav">
-	<div class="leftMenu">
-		<ul id="menu3" class="mr-navList">
-			<li ng-repeat="type in data track by $index">
-				<a href="#" class="menu" ng-click="changeMenu(type.menuName);"
-				   ng-class="{'activeMenu':menuName == type.menuName}">
-					<i ng-if="type.menuName == '机器人管理'" class="fa fa-arrows-alt" aria-hidden="true"></i>
-					<i ng-if="type.menuName == '用户及角色管理'" class="fa fa-user" aria-hidden="true"></i>
-					<i ng-if="type.menuName == '信息管理'" class="fa fa-commenting-o" aria-hidden="true"></i>
-					{{type.menuName}}
-				</a>
-				<ul ng-if="type.childMenuList.length > 0">
-					<li ng-repeat="classify in type.childMenuList track by $index">
-						<a class="childMenu"
-						   href="{{classify.runscript}}"
-						   ng-if="!classify.threeMenuList"
-						   ng-click="changeChildMenu(classify.menuName);"
-						   ng-class="{'activeChildMenu':childMenu == classify.menuName}">
-							{{classify.menuName}}
-						</a>
-						<a class="childMenu"
-						   href="#"
-						   ng-if="classify.threeMenuList"
-						   ng-click="changeChildMenu(classify.menuName);"
-						   ng-class="{'activeChildMenu':childMenu == classify.menuName}">{{classify.menuName}}
-						</a>
-						<ul ng-if="classify.threeMenuList && classify.menuName == '方案管理'">
-							<li ng-repeat="menu in classify.threeMenuList track by $index" on-finish-render-filters>
-								<a href="{{menu.runscript}}"
-								   class="threeMenu"
-								   ng-click="changeChildMenu(menu.menuName);"
-								   ng-class="{'activeChildMenu':childMenu == menu.menuName}">{{menu.menuName}}
-								</a>
-							</li>
-							<li>
-								<a href="{{classify.runscript}}"
-								   class="threeMenu"
-								   ng-click="changeChildMenu((classify.menuName | limitTo:classify.menuName.length-2));"
-								   ng-class="{'activeChildMenu':childMenu == (classify.menuName | limitTo:classify.menuName.length-2) }">
-									{{classify.menuName | limitTo:classify.menuName.length-2 }}
-								</a>
-							</li>
-						</ul>
-						<ul ng-if="classify.threeMenuList && classify.menuName != '方案管理'">
-							<li>
-								<a href="{{classify.runscript}}"
-								   class="threeMenu"
-								   ng-click="changeChildMenu((classify.menuName | limitTo:classify.menuName.length-2));"
-								   ng-class="{'activeChildMenu':childMenu == (classify.menuName | limitTo:classify.menuName.length-2) }">
-									{{classify.menuName | limitTo:classify.menuName.length-2 }}
-								</a>
-							</li>
-							<li ng-repeat="menu in classify.threeMenuList" on-finish-render-filters>
-								<a href="{{menu.runscript}}"
-								   class="threeMenu"
-								   ng-click="changeChildMenu(menu.menuName);"
-								   ng-class="{'activeChildMenu':childMenu == menu.menuName}">{{menu.menuName}}
-								</a>
-							</li>
-						</ul>
-					</li>
-				</ul>
-			</li>
-		</ul>
-	</div>
-	<div class="mrCont"><!-- <a class="goIndex" ng-click="goBack()" ng-if="!userInfo.ifadmin" >首页 > </a>   -->
-		<div class="seat hidden-xs hidden-sm">您当前的位置是：{{nowParentname}}
-			<span ng-if="nowstatename"> > {{nowstatename}}</span>
-		</div>
-		<div ui-view="content"></div>
-	</div>
-</div>
-
-
-
-
 
 <div class="mr-homeNav">
-	<div class="leftMenu">
-		<uib-accordion close-others="oneAtATime" class="mr-navList">
-		    <uib-accordion-group ng-repeat="type in data" is-open="type.open" uib-collapse="isCollapsed" ng-click="changeType(type.name);">
-		        <uib-accordion-heading>
-		        	<i class="fa fa-{{type.icon}}" aria-hidden="true"></i>
-		        	<span class="visible-md visible-lg">{{type.name}} </span>
-		        </uib-accordion-heading>
-				<ul class="navList" uib-collapse="isCollapsed">
-					<li ng-repeat="classify in type.classify" ng-class="{'active':curType == classify.classifyName}" ng-click="selectType(classify.classifyName)" ><a href="{{classify.classifyUrl}}" class="mrBookmark">{{classify.classifyName}}</a></li>
-				</ul>
-		    </uib-accordion-group>
-		</uib-accordion>
-	</div>
-	<div class="col-md-10 mrCont pull-right">
-		<div class="seat">您当前的位置是：{{nowParentname}} <span ng-if="nowstatename"> > {{nowstatename}}</span></div>
-		<div ui-view="content"></div>
-	</div>
+    <div class="leftMenu">
+        <ul id="menu3" class="mr-navList">
+            <li ng-repeat="type in data track by $index">
+                <a href="#" class="menu" ng-click="changeMenu(type.menuName);"
+                   ng-class="{'activeMenu':menuName == type.menuName}">
+                    <i ng-if="type.menuName == '授权管理'" class="fa fa-arrows-alt" aria-hidden="true"></i>
+                    {{type.menuName}}
+                </a>
+                <ul ng-if="type.childMenuList.length > 0">
+                    <li ng-repeat="classify in type.childMenuList track by $index">
+                        <a class="childMenu"
+                           href="{{classify.runscript}}"
+                           ng-if="!classify.threeMenuList"
+                           ng-click="changeChildMenu(classify.menuName);"
+                           ng-class="{'activeChildMenu':childMenu == classify.menuName}">
+                            {{classify.menuName}}
+                        </a>
+                        <a class="childMenu"
+                           href="#"
+                           ng-if="classify.threeMenuList"
+                           ng-click="changeChildMenu(classify.menuName);"
+                           ng-class="{'activeChildMenu':childMenu == classify.menuName}">{{classify.menuName}}
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <div class="mrCont"><!-- <a class="goIndex" ng-click="goBack()" ng-if="!userInfo.ifadmin" >首页 > </a>   -->
+        <div class="seat hidden-xs hidden-sm">您当前的位置是：{{nowParentname}}
+            <span ng-if="nowstatename"> > {{nowstatename}}</span>
+        </div>
+        <div ui-view="content"></div>
+    </div>
 </div>

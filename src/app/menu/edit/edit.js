@@ -1,20 +1,23 @@
-angular.module('robot.addMenu', [
-    'robot.addMenu.mock',
+angular.module('robot.editMenu', [
+    'robot.editMenu.mock',
     'ui.router'
 ])
 
     .config(['$stateProvider', function ($stateProvider) {
-        $stateProvider.state('home.addMenu', {
-            url: '/addMenu',
-            bookname: '添加管理',
+        $stateProvider.state('home.editMenu', {
+            url: '/menu/editMenu/:mId',
+            bookname: '编辑管理',
             parentsname: '菜单管理',
             views: {
                 'content': {
                     controller: 'addFunctionController',
-                    templateUrl: 'menu/add/add.tpl.html',
+                    templateUrl: 'menu/edit/edit.tpl.html',
                     resolve: {
                         functionData: ['$http', '$stateParams', function ($http) {
                             return $http.get('/function/searFunction')
+                        }],
+                        functionInfoData: ['$http', '$stateParams', function ($http) {
+                            return $http.get('/function/searchFunctionById')
                         }]
                     },
                 },

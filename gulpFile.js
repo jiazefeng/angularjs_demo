@@ -28,7 +28,7 @@ gulp.task('build-release',['build-vendor-release', 'html2js-release','build-js-r
 gulp.task('webserver', ['build-dev'], function() {
     connect.server({
         root:webServerRoot,
-        port:11100,
+        port:9000,
         fallback:webServerRoot+'index.html',
         debug:true
     });

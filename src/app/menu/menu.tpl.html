@@ -20,7 +20,7 @@
 				<td>{{menu.mLayer}}</td>
 				<td>{{menu.mOrder}}</td>
 				<td>
-					<p class="edit"><i class="fa fa-edit" aria-hidden="true"></i>编辑</p>
+					<a class="edit" href="/home/menu/editMenu/{{menu.mId}}"><i class="fa fa-edit" aria-hidden="true"></i>编辑</a>
 					<p class="delete" ng-click="delete(menu.mId,$index)"><i class="fa fa-trash-o" aria-hidden="true"></i>删除</p>
 				</td>
 			</tr>

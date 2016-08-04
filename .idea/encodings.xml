@@ -20,11 +20,12 @@
     <file url="file://$PROJECT_DIR$/src/app/common/httpBaseUrlSupport.js" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/app/common/httpMockBaseUrlSupport.js" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/app/common/httpTransform.js" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/app/common/login.js" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/app/common/login.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/app/common/mocksdata.js" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/app/home" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/app/home/confirmModal.tpl.html" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/app/home/userInfo.tpl.html" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/app/login" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/app/role" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/app/user" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/images" charset="UTF-8" />
@@ -34,20 +35,24 @@
     <file url="file://$PROJECT_DIR$/src/index.html" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/less" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/less/base.less" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/less/base.less" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/less/baseCont.less" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/less/baseCont.less" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/less/common.less" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/less/common.less" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/less/login.less" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/less/login.less" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/less/maps.less" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/less/maps.less" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/less/pictureBox.less" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/less/pictureBox.less" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/less/robotManage.less" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/less/robotManage.less" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/mrframework" charset="GBK" />
     <file url="file://$PROJECT_DIR$/vendor" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/vendor/angular" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/vendor/angular/angular" charset="GBK" />
     <file url="file://$PROJECT_DIR$/vendor/angular/angular-strap.min.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/vendor/angular/angular-strap.tpl.min.js" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/vendor/angular/angular/angular-strap.min.js" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/vendor/angular/angular/angular-strap.tpl.min.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/vendor/bootstrap/metisMenu.min.js" charset="GBK" />
     <file url="file://$PROJECT_DIR$/vendor/reset" charset="GBK" />
     <file url="file://$PROJECT_DIR$/vendor/uploader" charset="GBK" />

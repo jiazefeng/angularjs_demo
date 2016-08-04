@@ -6,58 +6,24 @@ angular.module('robot.home.mock', [
     .run(['$httpBackend', 'mocksData', function ($httpBackend, mocksData) {
         var data = [
             {
-                "name": "菜单管理",
+                "menuName": "授权管理",
                 "icon": "arrows-alt",
-                "classify": [
+                "childMenuList": [
                     {
-                        "classifyName": "菜单管理",
-                        "classifyUrl": "/home/menu",
-                        "classifyId": "1"
-                    }
-                ]
-            },
-            //{
-            //    "name": "信息管理",
-            //    "icon": "commenting-o",
-            //    "classify": [
-            //        {
-            //            "classifyName": "机器人状态",
-            //            "classifyUrl": "/home/wuye/propertyCompany",
-            //            "classifyId": "1"
-            //        }, {
-            //            "classifyName": "视频及图片",
-            //            "classifyUrl": "/home/video",
-            //            "classifyId": "1",
-            //            "menuList": [
-            //                {
-            //                    "classifyName": "图片",
-            //                    "classifyUrl": "/home/picture",
-            //                    "classifyId": "1",
-            //                }
-            //            ]
-            //        }, {
-            //            "classifyName": "报警信息",
-            //            "classifyUrl": "/home/alarmInfo",
-            //            "classifyId": "1"
-            //        }
-            //    ]
-            //},
-            {
-                "name": "用户及角色管理",
-                "icon": "user",
-                "classify": [
-                    {
-                        "classifyName": "用户管理",
-                        "classifyUrl": "/home/user",
-                        "classifyId": "1"
+                        "menuName": "菜单管理",
+                        "runscript": "/home/menu",
+                        "menuId": "1"
+                    },{
+                        "menuName": "用户管理",
+                        "runscript": "/home/user",
+                        "menuId": "1"
                     }, {
-                        "classifyName": "角色管理",
-                        "classifyUrl": "/home/role",
-                        "classifyId": "1"
+                        "menuName": "角色管理",
+                        "runscript": "/home/role",
+                        "menuId": "1"
                     }
                 ]
             }
-
         ];
         var result = mocksData.resetData(data);
         $httpBackend.whenGET('/type/typeList').respond(result);

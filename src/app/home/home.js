@@ -2,7 +2,8 @@ angular.module('robot.home', [
     'ngAnimate',
     'ui.router',
     'robot.home.mock',
-    'mgcrea.ngStrap.dropdown'
+    'mgcrea.ngStrap.dropdown',
+    'mgcrea.ngStrap.popover'
 ])
     //注释
     .config(['$stateProvider', function ($stateProvider) {

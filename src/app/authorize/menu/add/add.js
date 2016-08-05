@@ -11,7 +11,7 @@ angular.module('robot.addMenu', [
             views: {
                 'content': {
                     controller: 'addFunctionController',
-                    templateUrl: 'menu/add/add.tpl.html',
+                    templateUrl: 'authorize/menu/add/add.tpl.html',
                     resolve: {
                         functionData: ['$http', '$stateParams', function ($http) {
                             return $http.get('/function/searFunction')

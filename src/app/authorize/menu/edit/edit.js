@@ -10,14 +10,11 @@ angular.module('robot.editMenu', [
             parentsname: '菜单管理',
             views: {
                 'content': {
-                    controller: 'addFunctionController',
-                    templateUrl: 'menu/edit/edit.tpl.html',
+                    controller: 'editFunctionController',
+                    templateUrl: 'authorize/menu/edit/edit.tpl.html',
                     resolve: {
-                        functionData: ['$http', '$stateParams', function ($http) {
-                            return $http.get('/function/searFunction')
-                        }],
-                        functionInfoData: ['$http', '$stateParams', function ($http) {
-                            return $http.get('/function/searchFunctionById')
+                        functionInfoData: ['$http', '$stateParams', function ($http,$stateParams) {
+                            return $http.get('/function/searchFunctionById/'+$stateParams.mId)
                         }]
                     },
                 },
@@ -25,20 +22,29 @@ angular.module('robot.editMenu', [
             }
         });
     }])
-    .controller('addFunctionController', ['$scope', '$http', 'functionData', '$modal', '$state',
-        function ($scope, $http, functionData, $modal, $state) {
-            $scope.data = functionData.data;
+    .controller('editFunctionController', ['$scope', '$http', '$modal', '$state','functionInfoData',
+        function ($scope, $http, $modal, $state,functionInfoData) {
+            $scope.data = functionInfoData.data;
+
+            //所属菜单赋值
+            for (var i = 0; i < $scope.data.functionList.length; i++) {
+                if ($scope.data.functionList[i].mId == $scope.data.functionInfo.mParentId) {
+                    $scope.data.menu = $scope.data.functionList[i];
+                }
+            };
+
             $scope.commitForm = function (myForm) {
                 if (myForm.$valid) {
                     var params = {
-                        mName: $scope.data.name,
-                        mUrl: $scope.data.url,
-                        mIfNavigationNode: $scope.data.IfNode,
-                        mLayer: $scope.data.layer,
-                        mOrder: $scope.data.order,
+                        mId:$scope.data.functionInfo.mId,
+                        mName: $scope.data.functionInfo.mName,
+                        mUrl: $scope.data.functionInfo.mUrl,
+                        mIfNavigationNode: $scope.data.functionInfo.mIfNavigationNode,
+                        mLayer: $scope.data.functionInfo.mLayer,
+                        mOrder: $scope.data.functionInfo.mOrder,
                         mParentId: $scope.data.menu ? $scope.data.menu.mId : ''
                     }
-                    httpFunction('/function/addFunction', params);
+                    httpFunction('/function/editFunction', params);
                     return true;
                 } else {
                     errorHint('请正确填写所有信息!!!');

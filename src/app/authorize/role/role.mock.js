@@ -28,7 +28,7 @@ angular.module('robot.role.mock',[
 		}
 		var result = mocksData.resetData(data);
 		$httpBackend.whenGET('/role/getRoleList').respond(result);
-		//$httpBackend.whenGET('/role/getRoleList').passThrough();
+		$httpBackend.whenGET('/role/searchRoleList').passThrough();
 
 		var data2 = {
 

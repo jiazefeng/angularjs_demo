@@ -14,6 +14,11 @@
     <file url="file://$PROJECT_DIR$/node_modules/gulp-uglify" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/app/app.config.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/app/app.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/app/authorize/role" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/app/authorize/role/accredit" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/app/authorize/role/addRole" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/app/authorize/role/editRole" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/app/authorize/user" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/app/common" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/app/common/base64encode.js" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/app/common/common.js" charset="GBK" />
@@ -26,8 +31,6 @@
     <file url="file://$PROJECT_DIR$/src/app/home/confirmModal.tpl.html" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/app/home/userInfo.tpl.html" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/app/login" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/app/role" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/app/user" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/images" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/images/icon" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/images/imgs" charset="GBK" />
@@ -35,18 +38,11 @@
     <file url="file://$PROJECT_DIR$/src/index.html" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/less" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/less/base.less" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/less/base.less" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/less/baseCont.less" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/less/baseCont.less" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/less/common.less" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/less/common.less" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/less/login.less" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/less/login.less" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/less/maps.less" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/less/maps.less" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/less/pictureBox.less" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/less/pictureBox.less" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/less/robotManage.less" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/less/robotManage.less" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/mrframework" charset="GBK" />
     <file url="file://$PROJECT_DIR$/vendor" charset="UTF-8" />

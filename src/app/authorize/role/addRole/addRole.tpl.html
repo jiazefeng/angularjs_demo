@@ -1,0 +1,50 @@
+<form name="myForm" ng-submit="commitForm(myForm);" class="form-horizontal">
+	<div class="contentBox">
+		<div class="subTitle">添加角色</div>
+		<div class="contList">
+			<div class="form-group col-md-10 col-sm-7">
+				<label class="col-md-2 control-label">角色名称：</label>
+				<div class="col-md-5">
+					<input type="text" class="form-control" ng-model="data.name" value={{role.name}} required>{{role.name}}<br/>
+				</div>
+			</div>
+			<div class="form-group col-md-10 col-sm-10">
+				<label class="col-md-2 control-label">权限选择：</label>
+				<div class="col-md-9">
+					<div class="manageList" ng-repeat="mainMenu in data.menuList">
+						<div class="selectTit">
+							<label class="checkbox-inline">
+								<input type="checkbox" ng-model="mainMenu.allChecked" ng-change="allCheck(mainMenu);" value="all">{{mainMenu.mName}}
+							</label>
+							<p class="upDown" ng-click="contShow = !contShow">
+								<span>
+									<i class="fa fa-angle-down" aria-hidden="true" ng-if="!contShow"></i>
+									<i class="fa fa-angle-up" aria-hidden="true" ng-if="contShow"></i>
+								</span>
+							</p>
+						</div>
+						<div class="selectCont" ng-if="contShow">
+							<label class="checkbox-inline" ng-repeat="subMenu in mainMenu.allSubmenuList" >
+								<input type="checkbox" ng-model="subMenu.menu" ng-change="check(subMenu,mainMenu);" value={{subMenu.mId}}>{{subMenu.mName}}
+							</label>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="form-group col-md-10 col-sm-7">
+				<label class="col-md-2 control-label">是否启用：</label>
+				<div class="col-md-5">
+					<label class="radio-inline"><input type="radio" ng-model="data.state" value="1"> 是</label>
+					<label class="radio-inline"><input type="radio" ng-model="data.state" value="0"> 否</label>
+				</div>
+			</div>
+
+
+			<div class="form-group col-md-10 col-sm-10 text-center">
+				<button type="submit" class="btn btn-primary width100"> 提交 </button>
+				<button type="reset" class="btn btn-default width100">重置</button>
+			</div>	
+			<div class="clearfix"></div>	
+		</div>
+	</div>
+</form>

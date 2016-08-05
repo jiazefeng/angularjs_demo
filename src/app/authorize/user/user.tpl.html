@@ -1,20 +1,16 @@
 
 <div class="contentBox">
-	<div class="subTitle">用户列表<a type="button" class="btn btn-primary frMt3" href="/home/addUser"> <i class="fa fa-plus-square-o" aria-hidden="true"></i>  添加用户 </a></div>
+	<div class="subTitle">用户列表<a type="button" class="btn btn-primary frMt3" href="/home/user/addUser"> <i class="fa fa-plus-square-o" aria-hidden="true"></i>  添加用户 </a></div>
 	<div class="contList table-responsive">
 		<table class="table table-bordered">
 			<tr>
 				<td>用户名</td>
-				<td>职务</td>
-				<td>服务小区</td>
 				<td>角色</td>
 				<td>电话</td>
 				<td>操作</td>
 			</tr>
 			<tr ng-repeat="userInfo in data.contList">
 				<td>{{userInfo.userName}}</td>
-				<td>{{userInfo.job}}</td>
-				<td>{{userInfo.village}}</td>
 				<td>{{userInfo.role}}</td>
 				<td>{{userInfo.mobile}}</td>
 				<td>

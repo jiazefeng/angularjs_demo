@@ -1,0 +1,23 @@
+<div class="contentBox">
+	<div class="subTitle">角色列表<a type="button" class="btn btn-primary frMt3" href="/home/role/addRole"> <i class="fa fa-plus-square-o" aria-hidden="true"></i>  添加角色 </a></div>
+	<div class="contList">
+		<table class="table table-bordered table-condensed">
+			<tr>
+				<td>名称</td>
+				<td>状态</td>
+				<td>操作</td>
+			</tr>
+			<tr ng-repeat="role in data.roleInfoList">
+				<td>{{role.rName}}</td>
+				<td ng-if="role.rState == 0" style="color: red">停用</td>
+				<td ng-if="role.rState == 1">启用</td>
+				<td>
+					<a class="edit" href="/home/role/editRole/{{role.rId}}"><i class="fa fa-edit" aria-hidden="true" ></i>编辑</a>
+				</td>
+			</tr>
+		</table>
+		<div class="pages" ng-if="data.count >0">
+			<uib-pagination total-items="data.count" ng-model="data.page" num-pages="numPages" class="pagination-sm" max-size="maxSize"  force-ellipses="true" previous-text="上一页" next-text="下一页" ng-change="commitCont();"></uib-pagination><!--  -->
+		</div>
+	</div>
+</div>

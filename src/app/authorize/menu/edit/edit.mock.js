@@ -49,8 +49,8 @@ angular.module('robot.editMenu.mock',[
 			]
 		}
 		var result = mocksData.resetData(data);
-		$httpBackend.whenGET('/function/searFunction').passThrough();
-		$httpBackend.whenPOST('/function/addFunction').passThrough();
+		$httpBackend.whenGET(/\/function\/searchFunctionById(\s\S)?/).passThrough();
+		$httpBackend.whenPOST('/function/editFunction').passThrough();
 
 		var data2 = {
 

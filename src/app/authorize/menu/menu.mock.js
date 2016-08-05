@@ -57,6 +57,9 @@ angular.module('robot.menu.mock',[
 		$httpBackend.whenGET('/user/getAdminInfo').respond(result);
 
 		$httpBackend.whenGET('/function/searFunctionList').passThrough();
+		$httpBackend.whenPOST('/function/searFunctionListByItem').passThrough();
+		$httpBackend.whenDELETE(/\/function\/deleteFunction(\s\S)?/).passThrough();
+
 
 		var data2 = {
 

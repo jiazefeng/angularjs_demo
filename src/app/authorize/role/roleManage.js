@@ -1,4 +1,5 @@
 angular.module('robot.roleManage', [
     'robot.role',
-    'robot.addRole'
+    'robot.addRole',
+    'robot.editRole'
 ])

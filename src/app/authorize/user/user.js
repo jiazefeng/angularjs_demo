@@ -11,7 +11,7 @@ angular.module('robot.userInfo', [
     		views:{
     			'content':{
     				controller: 'userController',
-    				templateUrl: 'user/user.tpl.html',
+    				templateUrl: 'authorize/user/user.tpl.html',
             resolve:{
               userData:['$http',function($http){
                 return $http.get('/user/getAdminInfo')

@@ -3,53 +3,78 @@ angular.module('robot.userInfo', [
     'ui.router'
 ])
 
-.config(['$stateProvider', function($stateProvider) {
-  $stateProvider.state('home.user', {
-      	url: '/user',
-      	bookname:'用户及角色管理',
-      	parentsname:'用户管理',
-    		views:{
-    			'content':{
-    				controller: 'userController',
-    				templateUrl: 'authorize/user/user.tpl.html',
-            resolve:{
-              userData:['$http',function($http){
-                return $http.get('/user/getAdminInfo')
-              }]
-            }, 
-    		},
-		  }
-  });
-}])
-    .controller('userController', ['$scope', '$http','userData',
-        function($scope, $http,userData) {
+    .config(['$stateProvider', function ($stateProvider) {
+        $stateProvider.state('home.user', {
+            url: '/user',
+            bookname: '',
+            parentsname: '用户管理',
+            views: {
+                'content': {
+                    controller: 'userController',
+                    templateUrl: 'authorize/user/user.tpl.html',
+                    resolve: {
+                        userData: ['$http', function ($http) {
+                            return $http.get('/user/searchUserInfoList')
+                        }]
+                    },
+                },
+            }
+        });
+    }])
+    .controller('userController', ['$scope', '$http', 'userData','$modal',
+        function ($scope, $http, userData,$modal) {
             $scope.data = userData.data;
             $scope.maxSize = 6; //当最大页数大于10的时候，隐藏部分分页
-            $scope.commitCont = function(form){
-                if($scope.data.district){
-                    var params = {
-                        "districtId":$scope.data.district.id,
-                        "user":$scope.data.user
-                    }
-                    console.log(params);
-                }else{
-                    alert('请选择小区');
+
+
+            $scope.commitCont = function (form) {
+                var params = {
+                    "index": $scope.data.page
                 }
+                $http.post('/user/searchUserByItem', params).success(function (result) {
+                    $scope.data = result;
+                }).error(function (msg) {
+                    errorHint('网络异常，请稍后重试!!!');
+                });
 
             };
-            $scope.addUser = function(curType){
-                $scope.classifyUrl = "/user/addUser";
-            };
+
             //删除数据
-            $scope.delete = function(data,index){
-                if(confirm("确定要删除吗?")){
-                    $http.get('/demo/detele/'+data.id).success(function(result){
-                        $scope.data.contList.splice(index,1);
-                    }).error(function(msg) {
-                        alert('接口报错');
+            $scope.delete = function (data, index) {
+                var confirmModal = $modal({
+                    title: '系统提示',
+                    content: '确定要删除吗？',
+                    template: 'home/confirmModal.tpl.html',
+                    show: true,
+                    animation: 'am-fade-and-scale',
+                    placement: 'center',
+                    backdrop: false,
+                    scope:$scope
+                });
+                $scope.confirm = function(){
+                    $http.delete('/user/deleteUserInfo/' + data.uId).success(function (result) {
+                        if (result.error) {
+                            errorHint(result.error);
+                            return false;
+                        } else {
+                            $scope.data.userInfoList.splice(index, 1);
+                        }
+                    }).error(function (msg) {
+                        errorHint('网络异常，请稍后重试!!!');
                     });
-                }
+                    confirmModal.$promise.then(confirmModal.hide);
+                };
             };
 
+            var errorHint = function (message) {
+                $modal({
+                    title: '系统提示',
+                    content: message,
+                    show: true,
+                    animation: 'am-fade-and-scale',
+                    placement: 'center',
+                    backdrop: false
+                });
+            };
         }])
 

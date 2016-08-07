@@ -15,10 +15,10 @@
     <file url="file://$PROJECT_DIR$/src/app/app.config.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/app/app.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/app/authorize/role" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/app/authorize/role/accredit" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/app/authorize/role/addRole" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/app/authorize/role/editRole" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/app/authorize/user" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/app/authorize/user/updateUser" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/app/common" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/app/common/base64encode.js" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/app/common/common.js" charset="GBK" />

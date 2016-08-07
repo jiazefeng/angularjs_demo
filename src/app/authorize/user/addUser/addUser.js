@@ -85,7 +85,7 @@ angular.module('robot.addUser', [
             // 文件上传成功，给item添加成功class, 用样式标记上传成功。
             uploader.on( 'uploadSuccess', function( file,response) {
                 $( '#'+file.id ).addClass('upload-state-done');
-                $scope.addData.img = response._raw;
+                $scope.data.img = response._raw;
             });
             // 文件上传失败，现实上传出错。
             uploader.on( 'uploadError', function( file ) {
@@ -155,11 +155,13 @@ angular.module('robot.addUser', [
                 }
                 if(myForm.$valid){
                     var params = {
-                        uName: $scope.addData.userName,
-                        role: $scope.addData.role.roleId,
-                        pwd:$scope.addData.pwd,
-                        uLogo: $scope.addData.img,
-                        mobile: $scope.addData.mobile,
+                        uName: $scope.data.userName,
+                        uRealName:$scope.data.userRealName,
+                        uroleId: $scope.data.role.roleId,
+                        uPwd:$scope.data.pwd,
+                        uHendImg: $scope.data.img,
+                        phone: $scope.data.mobile,
+                        personalProfile:$scope.data.personalProfile
                     }
                     httpFunction('/user/addUser', params);
                     return true;

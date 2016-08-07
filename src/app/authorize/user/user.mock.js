@@ -55,6 +55,8 @@ angular.module('robot.userInfo.mock',[
 		}
 		var result = mocksData.resetData(data);
 		$httpBackend.whenGET('/user/getAdminInfo').respond(result);
+		$httpBackend.whenGET('/user/searchUserInfoList').passThrough();
+		$httpBackend.whenDELETE(/\/user\/deleteUserInfo(\s\S)?/).passThrough();
 
 		var data2 = {
 

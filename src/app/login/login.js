@@ -42,12 +42,18 @@ angular.module('robot.userLogin', [
                 };
 
                 CurrentUserService.login(params).then(function (res) {
-                    if (res){
-                        if (res.data.userInfo.ifadmin) {
-                            $state.go("home.user");
-                        }else{
+                    if (res) {
+                        //if (res.data.userInfo.ifadmin) {
+                        //    $state.go("home.user");
+                        //}else{
+                        //    $state.go("home.index");
+                        //}
+                        if (res.data.success) {
                             $state.go("home.index");
-                        }                        
+                        } else {
+                            errorHint(res.data.error);
+                        }
+
                     }
 
                 }, function () {

@@ -1,0 +1,52 @@
+<div class="modalBox">
+
+    <div class="modal-header">
+        <h3 class="modal-title">修改密码</h3>
+    </div>
+
+    <div class="modal-body">
+        <form class="form-horizontal" name="myForm" ng-submit="commitUpdatePwd(myForm.$valid);">
+            <div class="form-group col-md-10 col-sm-6">
+                <label class="col-md-4 control-label">初始密码:</label>
+
+                <div class="col-md-8">
+                    <input type="password" class="form-control" name="password" ng-model="pwd" required ng-required="true"
+                           placeholder="请输入初始密码"/>
+                    <!--<span style="color:red" ng-show="myForm.password.$error.pattern">-->
+                   <!--以字母开头，长度在6-30之间，只能包含字符、数字和下划线。-->
+               <!--</span>-->
+                </div>
+            </div>
+            <div class="form-group col-md-10 col-sm-6">
+                <label class="col-md-4 control-label">新密码:</label>
+
+                <div class="col-md-8">
+                    <input type="password" class="form-control" name="newpwd" ng-model="newPwd" required ng-required="true"
+                           placeholder="请输入新密码" ng-pattern="/^[a-zA-Z]\w{5,29}$/"/>
+                     <span style="color:red" ng-show="myForm.newpwd.$error.pattern">
+                   以字母开头，长度在6-30之间，只能包含字符、数字和下划线。
+               </span>
+                </div>
+            </div>
+            <div class="form-group col-md-10 col-sm-6">
+                <label class="col-md-4 control-label">确认密码:</label>
+
+                <div class="col-md-8">
+                    <input type="password" class="form-control" name="newpwd2" ng-model="newPwd2" required ng-required="true"
+                           placeholder="请再次输入密码" ng-pattern="/^[a-zA-Z]\w{5,29}$/"/>
+                     <span style="color:red" ng-show="myForm.newpwd2.$error.pattern">
+                   以字母开头，长度在6-30之间，只能包含字符、数字和下划线。
+               </span>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div class="modal-footer text-center">
+        <button class="btn btn-primary width100" type="submit" ng-click="ok(myForm.$valid)"
+                >确定
+        </button>
+        <button class="btn btn-warning width100" type="button" ng-click="cancel()">取消</button>
+    </div>
+
+</div>    

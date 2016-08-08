@@ -33,4 +33,8 @@ angular.module('robot.home.mock', [
         }
         var result1 = mocksData.resetData(userData);
         $httpBackend.whenGET('/user/getUserInfo').respond(result1);
+
+
+        $httpBackend.whenGET(/\/user\/logout(\s\S)?/).passThrough();
+        $httpBackend.whenPOST('/user/updateUserPwd').passThrough();
     }])

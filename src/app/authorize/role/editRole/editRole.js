@@ -24,9 +24,6 @@ angular.module('robot.editRole', [
         function ($modal, $scope, $http, editRoleData, $state) {
             $scope.data = editRoleData.data;
 
-
-
-
             $scope.back = function () {
                 $state.go("home.role");
             };

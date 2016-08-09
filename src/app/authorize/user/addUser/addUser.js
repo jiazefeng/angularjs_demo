@@ -9,7 +9,7 @@ angular.module('robot.addUser', [
         $stateProvider.state('home.addUser', {
             url: '/user/addUser',
             bookname:'添加用户',
-            parentsname:'用户及角色管理',
+            parentsname:'用户管理',
             views:{
                 'content':{
                     controller: 'addUserController',

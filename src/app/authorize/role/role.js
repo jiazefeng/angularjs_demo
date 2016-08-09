@@ -7,7 +7,7 @@ angular.module('robot.role', [
         $stateProvider.state('home.role', {
             url: '/role',
             bookname: '角色管理',
-            parentsname: '授权管理',
+            parentsname: '',
             views: {
                 'content': {
                     controller: 'roleController',

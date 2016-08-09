@@ -13,15 +13,15 @@
 
 <div class="mr-homeNav">
     <div class="leftMenu">
-        <ul id="menu3" class="mr-navList">
-            <li ng-repeat="type in data.menuList track by $index">
-                <a href="#" class="menu" ng-click="changeMenu(type.mName);"
+        <ul id="menu3" class="mr-navList" >
+            <li ng-repeat="type in data.menuList track by $index" ng-class="{closed:type.closed}">
+                <a href="#" class="menu" ng-click="changeMenu(type.mName);" ng-click="type.closed=!type.closed"
                    ng-class="{'activeMenu':mName == type.mName}">
-                    <i ng-if="type.mName == '系统管理'" class="fa fa-arrows-alt" aria-hidden="true"></i>
+                    <i ng-if="type.mName == '系统管理'" class="fa fa-cogs" aria-hidden="true"></i>
                     {{type.mName}}
                 </a>
-                <ul ng-if="type.allSubmenuList.length > 0">
-                    <li ng-repeat="classify in type.allSubmenuList track by $index">
+                <ul ng-if="type.allSubmenuList.length > 0" ng-class="{hidden: type.closed}">
+                    <li ng-repeat="classify in type.allSubmenuList track by $index" ng-class="{closed:classify.closed}">
                         <a class="childMenu"
                            href="{{classify.mUrl}}"
                            ng-click="changeChildMenu(classify.mName);"

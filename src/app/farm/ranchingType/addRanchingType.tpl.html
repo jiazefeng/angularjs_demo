@@ -1,0 +1,48 @@
+<div class="modalBox">
+    <div class="modal-header">
+        <h3 class="modal-title">{{modalTitle}}</h3>
+    </div>
+    <div class="modal-body">
+        <form class="form-horizontal" name="myForm" ng-submit="commitCont(myForm);">
+            <div class="form-group col-md-10 col-sm-6">
+                <label class="col-md-4 control-label">种类编号:</label>
+
+                <div class="col-md-8">
+                    <input type="text" class="form-control" ng-model="data.ranchingType.rtNumber" required
+                           placeholder="种类编号"/>
+                </div>
+            </div>
+            <div class="form-group col-md-10 col-sm-6">
+                <label class="col-md-4 control-label">种类名称:</label>
+
+                <div class="col-md-8">
+                    <input type="text" class="form-control" name="username" ng-model="data.ranchingType.rtName" required
+                           placeholder="请输入种类名称"/>
+                </div>
+            </div>
+            <div class="form-group col-md-10">
+                <label class="col-md-4 control-label">图片：</label>
+
+                <div class="col-md-8">
+                    <div class="pictureBox">
+                        <div id="uploader-demo">
+                            <div id="fileList" class="uploader-list">
+                                <div class="file-item thumbnail" ng-if="data.ranchingType.rtImge">
+                                    <img ng-src="{{data.ranchingType.rtImge}}"/>
+                                </div>
+                            </div>
+                            <div id="filePicker">选择图片</div>
+                        </div>
+                    </div>
+                </div>
+                <!--<div class="clearfix"></div>-->
+            </div>
+
+        </form>
+    </div>
+    <div class="modal-footer text-center">
+        <button class="btn btn-primary width100" type="submit" ng-click="ok(myForm)">确定</button>
+        <button class="btn btn-warning width100" type="button" ng-click="cancel()">取消</button>
+    </div>
+
+</div>    

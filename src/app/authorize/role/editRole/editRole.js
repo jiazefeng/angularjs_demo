@@ -72,14 +72,16 @@ angular.module('robot.editRole', [
                     for (var k = 0; k < $scope.data.menuList.length; k++) {
                         var menus = $scope.data.menuList[k];
                         var isIn = true;
-                        for (var i = 0; i < menus.allSubmenuList.length; i++) {
-                            if (menus.allSubmenuList[i].menu) {
-                                authorityId.push({id: menus.allSubmenuList[i].mId});
-                                if (isIn) {
-                                    authorityId.push({id: menus.mId});
-                                    isIn = false;
+                        if( menus.allSubmenuList){
+                            for (var i = 0; i < menus.allSubmenuList.length; i++) {
+                                if (menus.allSubmenuList[i].menu) {
+                                    authorityId.push({id: menus.allSubmenuList[i].mId});
                                 }
                             }
+                        }
+                        if (isIn) {
+                            authorityId.push({id: menus.mId});
+                            isIn = false;
                         }
                     }
                     ;
@@ -105,8 +107,10 @@ angular.module('robot.editRole', [
             //全选、全不选
             $scope.allCheck = function (mainMenu) {
                 if (mainMenu.allChecked) {
-                    for (var i = 0; i < mainMenu.allSubmenuList.length; i++) {
-                        mainMenu.allSubmenuList[i].menu = true;
+                    if(mainMenu.allSubmenuList){
+                        for (var i = 0; i < mainMenu.allSubmenuList.length; i++) {
+                            mainMenu.allSubmenuList[i].menu = true;
+                        }
                     }
                 } else {
                     for (var i = 0; i < mainMenu.allSubmenuList.length; i++) {
@@ -118,15 +122,17 @@ angular.module('robot.editRole', [
             $scope.check = function (subMenu, mainMenu) {
                 var checkedNum = 0;
                 if (subMenu.menu) {
-                    for (var i = 0; i < mainMenu.allSubmenuList.length; i++) {
-                        if (mainMenu.allSubmenuList[i].menu) {
-                            checkedNum++;
-                            if (checkedNum == mainMenu.allSubmenuList.length) {
-                                mainMenu.allChecked = true;
+                    if(mainMenu.allSubmenuList){
+                        for (var i = 0; i < mainMenu.allSubmenuList.length; i++) {
+                            if (mainMenu.allSubmenuList[i].menu) {
+                                checkedNum++;
+                                if (checkedNum == mainMenu.allSubmenuList.length) {
+                                    mainMenu.allChecked = true;
+                                }
+                            } else {
+                                mainMenu.allChecked = false;
+                                return;
                             }
-                        } else {
-                            mainMenu.allChecked = false;
-                            return;
                         }
                     }
                 } else {
@@ -137,21 +143,24 @@ angular.module('robot.editRole', [
 
             //权限赋值
             for (var j = 0; j < $scope.data.menuList.length; j++) {
-                for (var n = 0; n < $scope.data.menuList[j].allSubmenuList.length; n++) {
-                    var childMenu = $scope.data.menuList[j].allSubmenuList[n];
-                    var checkedNum1 = 0;
-                    $.each($scope.data.roleFunctionList, function (n, value) {
-                        if (value.funcId == childMenu.mId) {
-                            childMenu.menu = true;
-                            $scope.check(childMenu, $scope.data.menuList[j]);
-                            checkedNum1++;
-                            if (checkedNum1 == $scope.data.menuList[j].allSubmenuList.length) {
-                                $scope.data.menuList[j].allChecked = true;
+                if($scope.data.menuList[j].allSubmenuList){
+                    for (var n = 0; n < $scope.data.menuList[j].allSubmenuList.length; n++) {
+                        var childMenu = $scope.data.menuList[j].allSubmenuList[n];
+                        var checkedNum1 = 0;
+                        $.each($scope.data.roleFunctionList, function (n, value) {
+                            if (value.funcId == childMenu.mId) {
+                                childMenu.menu = true;
+                                $scope.check(childMenu, $scope.data.menuList[j]);
+                                checkedNum1++;
+                                if (checkedNum1 == $scope.data.menuList[j].allSubmenuList.length) {
+                                    $scope.data.menuList[j].allChecked = true;
+                                }
                             }
-                        }
-                        ;
-                    });
+                            ;
+                        });
+                    }
                 }
+
             }
             ;
 

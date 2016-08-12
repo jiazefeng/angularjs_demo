@@ -8,7 +8,8 @@ angular.module('robotSupervise.app', [
     'robot.home',
     'mgcrea.ngStrap.modal',
     'robot.userLogin',
-    'robot.authorize'
+    'robot.authorize',
+    'robot.farm'
 ])
 
     .run(['$rootScope', 'CurrentUserService', '$httpBackend', 'mrBookMarksService', 'Session', '$state', '$http', '$filter', '$timeout', '$modal',
@@ -44,14 +45,16 @@ angular.module('robotSupervise.app', [
                 function hasAuthority(data) {
                     var reg = /^(\/\w+){2}/;
                     for (var i = 0; i < data.menuList.length; i++) {
-                        for (var j = 0; j < data.menuList[i].allSubmenuList.length; j++) {
-                            var childMenu = data.menuList[i].allSubmenuList[j];
-                            authorityList.push(reg.exec(childMenu.mUrl)[0]);
-                            //if (childMenu.threeMenuList) {
-                            //    for (var k = 0; k < childMenu.threeMenuList.length; k++) {
-                            //        authorityList.push(childMenu.threeMenuList[k].runscript.match(reg)[0]);
-                            //    }
-                            //}
+                        if(data.menuList[i].allSubmenuList){
+                            for (var j = 0; j < data.menuList[i].allSubmenuList.length; j++) {
+                                var childMenu = data.menuList[i].allSubmenuList[j];
+                                authorityList.push(reg.exec(childMenu.mUrl)[0]);
+                                //if (childMenu.threeMenuList) {
+                                //    for (var k = 0; k < childMenu.threeMenuList.length; k++) {
+                                //        authorityList.push(childMenu.threeMenuList[k].runscript.match(reg)[0]);
+                                //    }
+                                //}
+                            }
                         }
                     }
                     ;

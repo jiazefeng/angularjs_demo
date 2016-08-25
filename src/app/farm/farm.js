@@ -1,3 +1,4 @@
 angular.module('robot.farm', [
-    'robot.ranchingTypeManage'
+    'robot.ranchingTypeManage',
+    'robot.ranchingInfoManage'
 ])

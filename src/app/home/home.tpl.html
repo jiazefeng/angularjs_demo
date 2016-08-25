@@ -5,7 +5,10 @@
             <div class="nav navbar-nav navbar-right">
                 <div class="charges red" trigger="click" data-autoClose=true data-template-url="home/userInfo.tpl.html"
                      data-auto-close="1" data-animation="am-flip-x" data-placement="bottom" bs-popover>
-                    <span class="uLogo" style="background:url({{userInfo.uHendImg}}) no-repeat center center;background-size:cover;">
+                    <span class="uLogo" ng-if="userInfo.uHendImg != ''" style="background:url({{userInfo.uHendImg}}) no-repeat center center;background-size:cover;">
+                        <!--<img src="{{userInfo.uHendImg}}"/>-->
+                    </span>
+                    <span class="uLogo" ng-if="userInfo.uHendImg == '' " style="background:url(../images/icon/1.jpg) no-repeat center center;background-size:cover;">
                         <!--<img src="{{userInfo.uHendImg}}"/>-->
                     </span>
                 </div>

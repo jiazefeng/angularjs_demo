@@ -1,0 +1,98 @@
+<form class="form-horizontal" name="myForm" ng-submit="commitForm(myForm);">
+    <div class="contentBox">
+        <div class="subTitle">添加畜牧</div>
+        <div class="contList">
+            <div class="form-group col-md-10">
+                <label class="col-md-3 control-label">畜牧编号：</label>
+                <div class="col-md-6">
+                    <input type="text" class="form-control" required ng-model="data.number" ng-required="true"
+                           placeholder="请输入畜牧编号"/>
+                </div>
+            </div>
+            <div class="form-group col-md-10">
+                <label class="col-md-3 control-label">畜牧名称：</label>
+                <div class="col-md-6">
+                    <input type="text" class="form-control" required ng-model="data.name" ng-required="true"
+                           placeholder="请输入畜牧名称"/>
+                </div>
+            </div>
+            <div class="form-group col-md-10">
+                <label class="col-md-3 control-label">所属种类：</label>
+
+                <div class="col-md-6">
+                    <select class="form-control" ng-model="data.ranchingType" required
+                            ng-options="ranchingType.name for ranchingType in data.ranchingTypeList">
+                        <option value="">请选择</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group col-md-10">
+                <label class="col-md-3 control-label">畜牧图片：</label>
+
+                <div class="col-md-6">
+                    <div class="pictureBox">
+                        <div id="uploader-demo">
+                            <div id="fileList" class="uploader-list"></div>
+                            <div id="filePicker">选择图片</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group col-md-10">
+                <label class="col-md-3 control-label">是否怀孕：</label>
+
+                <div class="col-md-6">
+                    <div class="radio">
+                        <label class="col-md-3" ng-click="stateChange(1)">
+                            <input type="radio" ng-model="data.ifPregnant" value="1">
+                            是
+                        </label>
+                        <label ng-click="stateChange(0)">
+                            <input type="radio" ng-model="data.ifPregnant" value="0" checked>
+                            否
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group col-md-10" ng-if="state">
+                <label class="col-md-3 control-label">怀孕时间：</label>
+                <div class="col-md-9">
+                    <div class="form-group  col-md-6">
+                        <input class="form-control" ng-model="data.pregnantDate" data-date-format="yyyy-MM-dd"
+                               data-autoclose="1" placeholder="Date" bs-datepicker type="text">
+                    </div>
+
+                    <div class="form-group col-md-3">
+                        <input type="text" class="form-control" placeholder="" ng-model="data.pregnantDate"  data-time-format="HH:mm:ss" data-length="3" data-autoclose="1" placeholder="Time" bs-timepicker  data-arrow-behavior="picker"/>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group col-md-10">
+                <label class="col-md-3 control-label">畜牧体重：</label>
+
+                <div class="col-md-3">
+                    <input type="number" class="form-control" ng-model="data.riWeight" required
+                           ng-required="true" min="0"/>
+                    <span style="color:red">
+                   *以KG为单位*
+               </span>
+                </div>
+            </div>
+            <div class="form-group col-md-10">
+                <label class="col-md-3 control-label">畜牧简介：</label>
+
+                <div class="col-md-6">
+                    <input type="text" class="form-control" ng-model="data.riProfile" placeholder=""/>
+                </div>
+            </div>
+            <div class="form-group col-md-10  text-center">
+                <button type="submit" class="btn btn-primary width100">提交</button>
+                <button type="reset" class="btn btn-default width100 ml15">重置</button>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</form>

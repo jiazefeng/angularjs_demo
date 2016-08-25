@@ -98,13 +98,27 @@ angular.module('robot.ranchingType', [
 
                 });
             }
-
-
         }])
 
 
     .controller('addRanchingTypeModalInstanceCtrl', ['$modal', '$scope', '$uibModalInstance', '$http', 'ranchingTypeData', '$state', 'dataList', 'ApiBaseUrl', '$timeout',
         function ($modal, $scope, $uibModalInstance, $http, ranchingTypeData, $state, dataList, ApiBaseUrl, $timeout) {
+            $scope.data = ranchingTypeData.data;
+
+            $scope.modalTitle = "添加种类";
+            if ($scope.data.ranchingType) {
+                $scope.modalTitle = "编辑种类";
+                //所属种类赋值
+                if($scope.data.ranchingTypeList){
+                    for (var i = 0; i < $scope.data.ranchingTypeList.length; i++) {
+                        if ($scope.data.ranchingTypeList[i].id == $scope.data.ranchingType.rtParentId) {
+                            $scope.data.ranchingTypeInfo = $scope.data.ranchingTypeList[i];
+                        }
+                    }
+                    ;
+                }
+            }
+            ;
             var uploader;
             $timeout(function () {
                 var $list = $('#fileList');
@@ -166,7 +180,7 @@ angular.module('robot.ranchingType', [
                 // 文件上传成功，给item添加成功class, 用样式标记上传成功。
                 uploader.on('uploadSuccess', function (file, response) {
                     $('#' + file.id).addClass('upload-state-done');
-                    $scope.data.img = response._raw;
+                    $scope.data.ranchingType.rtImge = response._raw;
                 });
                 // 文件上传失败，现实上传出错。
                 uploader.on('uploadError', function (file) {
@@ -184,18 +198,9 @@ angular.module('robot.ranchingType', [
                 });
             }, 0);
 
-            $scope.data = ranchingTypeData.data;
-
-            $scope.modalTitle = "添加种类";
-            if ($scope.data.ranchingType) {
-                $scope.modalTitle = "编辑种类";
-            }
-            ;
-
             $scope.commitForm = function (myForm) {
                 if ($('#fileList div').length > 0) {
                     uploader.upload();
-
                 }
                 if (myForm.$valid) {
                     if ($scope.data.ranchingType.rtId) {
@@ -204,7 +209,10 @@ angular.module('robot.ranchingType', [
                             rtId: $scope.data.ranchingType.rtId,
                             rtName: $scope.data.ranchingType.rtName,
                             rtNumber: $scope.data.ranchingType.rtNumber,
-                            rtImge: $scope.data.img
+                            rtImge: $scope.data.ranchingType.rtImge,
+                            rtProfile: $scope.data.ranchingType.rtProfile,
+                            rtParentId: $scope.data.ranchingTypeInfo ? $scope.data.ranchingTypeInfo.id : "",
+                            rtLevel: $scope.data.ranchingType.rtLevel
                         }
                         $http.post('/ranchingType/editRanchingType', updateparams)
                             .success(function (result) {
@@ -225,7 +233,7 @@ angular.module('robot.ranchingType', [
                                             $uibModalInstance.close();
                                         }
                                     });
-                                    return true;
+                                    // return true;
                                 }
                             })
                             .error(function (msg) {
@@ -236,7 +244,10 @@ angular.module('robot.ranchingType', [
                         var params = {
                             rtName: $scope.data.ranchingType.rtName,
                             rtNumber: $scope.data.ranchingType.rtNumber,
-                            rtImge: $scope.data.img
+                            rtImge: $scope.data.ranchingType.rtImge,
+                            rtProfile: $scope.data.ranchingType.rtProfile,
+                            rtParentId: $scope.data.ranchingTypeInfo ? $scope.data.ranchingTypeInfo.id : "",
+                            rtLevel: $scope.data.ranchingType.rtLevel
                         }
                         $http.post('/ranchingType/addRanchingType', params)
                             .success(function (result) {

@@ -1,0 +1,78 @@
+<div class="searchBox">
+    <form class="form-horizontal" name="myForm" ng-submit="commitCont(myForm);">
+        <div>
+            <div class="form-group col-md-4">
+                <label class="col-md-4 control-label">所属种类：</label>
+                <div class="col-md-8">
+                    <select class="form-control" ng-model="data.ranchingType"
+                            ng-options="ranchingType.name for ranchingType in data.ranchingTypeList">
+                        <option value="">请选择</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group col-md-4">
+                <label class="col-md-4 control-label">畜牧编号：</label>
+                <div class="col-md-8">
+                    <input type="text" class="form-control" ng-model="data.number" placeholder=""/>
+                </div>
+            </div>
+            <div class="form-group col-md-4">
+                <label class="col-md-4 control-label">畜牧名称：</label>
+                <div class="col-md-8">
+                    <input type="text" class="form-control" ng-model="data.name" placeholder=""/>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group col-md-4 pull-right">
+            <!--<button type="button" class="btn btn-primary pull-right"> 导出Excel </button>-->
+            <button type="button" class="btn btn-primary pull-right mr10" ng-click="empty()">重置</button>
+            <button type="submit" class="btn btn-primary pull-right mr10"> 搜 索</button>
+
+        </div>
+    </form>
+    <div class="clearfix"></div>
+</div>
+<div class="contentBox">
+    <div class="subTitle">畜牧列表<a type="button" class="btn btn-primary frMt3" href="/home/ranchingInfo/addRanchingInfo">
+        <i
+                class="fa fa-plus-square-o" aria-hidden="true"></i> 添加畜牧 </a></div>
+    <div class="contList table-responsive">
+        <table class="table table-bordered">
+            <tr>
+                <td>畜牧编号</td>
+                <td>畜牧名称</td>
+                <td>所属种类</td>
+                <td>是否怀孕</td>
+                <td>怀孕时间</td>
+                <td>畜牧体重</td>
+                <td>畜牧图片</td>
+                <td>畜牧简介</td>
+                <td>操作</td>
+            </tr>
+            <tr ng-repeat="ranchingInfo in data.ranchingInfoList">
+                <td>{{ranchingInfo.number}}</td>
+                <td>{{ranchingInfo.name}}</td>
+                <td>{{ranchingInfo.ranchingTypeName}}</td>
+                <td ng-if="ranchingInfo.ifPregnant == 1">是</td>
+                <td ng-if="ranchingInfo.ifPregnant == 0">否</td>
+                <td>{{ranchingInfo.pregnantDate | date:'yyyy-MM-dd HH:mm:ss'}}</td>
+                <td ng-if="ranchingInfo.riWeight">{{ranchingInfo.riWeight}}KG</td>
+                <td class="col-md-3"><img ng-src="{{ranchingInfo.riImge}}" class="img-rounded"/></td>
+                <td>{{ranchingInfo.riProfile}}</td>
+                <td>
+                    <!--<a class="look" href="/home/user/lookUser/{{userInfo.id}}"><i class="fa fa-eye" aria-hidden="true"></i>查看</a>-->
+                    <a class="edit" href="/home/ranchingInfo/editRanchingInfo/{{ranchingInfo.id}}"><i class="fa fa-edit"
+                                                                                                      aria-hidden="true"></i>编辑</a>
+                    <p class="delete" ng-click="delete(ranchingInfo,$index)"><i class="fa fa-trash-o"
+                                                                                aria-hidden="true"></i>删除</p>
+                </td>
+            </tr>
+        </table>
+        <div class="pages" ng-if="data.count > 0">
+            <uib-pagination total-items="data.count" ng-model="data.page" num-pages="numPages" class="pagination-sm"
+                            max-size="maxSize" ng-change="commitCont(myForm)" force-ellipses="true" previous-text="上一页"
+                            next-text="下一页"></uib-pagination><!-- ng-change="commitCont();" -->
+        </div>
+    </div>
+</div>

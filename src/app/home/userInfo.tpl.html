@@ -1,9 +1,13 @@
 <div class="infoStyle popover">
     <div class="arrow"></div>
     <dl class="info">
-        <dt><span style="background:url({{userInfo.uHendImg}}) no-repeat center center;background-size:cover;">
+        <dt>
+            <span ng-if="userInfo.uHendImg != ''" style="background:url({{userInfo.uHendImg}}) no-repeat center center;background-size:cover;">
             <!--<img  ng-src="{{userInfo.uHendImg}}" />-->
-        </span></dt>
+        </span>
+            <span ng-if="userInfo.uHendImg == ''" style="background:url(../images/icon/1.jpg) no-repeat center center;background-size:cover;">
+        </span>
+        </dt>
         <dd>
             <h4>{{userInfo.uName}}</h4>
             <p ng-click="openPWDModal(lg)">修改密码</p>

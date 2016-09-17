@@ -5,7 +5,7 @@ angular.module('robot.addMenu', [
 
     .config(['$stateProvider', function ($stateProvider) {
         $stateProvider.state('home.addMenu', {
-            url: '/addMenu',
+            url: '/menu/addMenu',
             bookname: '添加管理',
             parentsname: '菜单管理',
             views: {

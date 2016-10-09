@@ -1,0 +1,79 @@
+<form class="form-horizontal" name="myForm" ng-submit="commitForm(myForm);">
+	<div class="contentBox">
+		<div class="subTitle">添加用户</div>
+		<div class="contList">
+			<div class="form-group col-md-10">
+				<label class="col-md-3 control-label">用户名：</label>
+				<div class="col-md-6">
+					<input type="text" class="form-control" name="username" ng-maxlength="20" required
+						   ng-model="data.userName"  ng-required="true" placeholder="请输入用户名"/>
+	              <span style="color:red" ng-show="myForm.username.$error.maxlength">
+                   最大长度为20
+               </span>
+				</div>
+			</div>
+			<div class="form-group col-md-10">
+				<label class="col-md-3 control-label">真实姓名：</label>
+				<div class="col-md-6">
+					<input type="text" class="form-control" name="userRealName" ng-maxlength="20" ng-model="data.userRealName" placeholder=""/>
+				</div>
+			</div>
+			<div class="form-group col-md-10">
+				<label class="col-md-3 control-label">角色：</label>
+
+				<div class="col-md-6">
+					<select class="form-control" ng-model="data.role" required ng-options="role.roleName for role in data.roleInfo">
+					</select>
+				</div>
+			</div>
+
+			<div class="form-group col-md-10">
+				<label class="col-md-3 control-label">用户密码：</label>
+
+				<div class="col-md-6">
+					<input type="password" class="form-control" name="pwd" ng-pattern="/^[a-zA-Z]\w{5,29}$/"
+						   ng-model="data.pwd" required ng-required="true" placeholder="用户密码"/>
+	             <span style="color:red" ng-show="myForm.pwd.$error.pattern">
+                   以字母开头，长度在6-30之间，只能包含字符、数字和下划线。
+               </span>
+				</div>
+			</div>
+
+			<div class="form-group col-md-10">
+				<label class="col-md-3 control-label">头像：</label>
+				<div class="col-md-6">
+					<div class="pictureBox">
+						<div id="uploader-demo">
+							<div id="fileList" class="uploader-list"></div>
+							<div id="filePicker">选择图片</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="form-group col-md-10">
+				<label class="col-md-3 control-label">电话号码：</label>
+				<div class="col-md-6">
+					<input type="text" class="form-control" name="phone" maxlength="11" ng-pattern="/^\d{11}$/"
+						   ng-model="data.mobile" required ng-required="true" placeholder="填写您的电话号码"/>
+	           <span style="color:red" ng-show="myForm.phone.$error.pattern">
+                   只能输入 11 位数字
+               </span>
+				</div>
+			</div>
+
+			<div class="form-group col-md-10">
+				<label class="col-md-3 control-label">用户简介：</label>
+				<div class="col-md-6">
+					<input type="text" class="form-control"
+						   ng-model="data.personalProfile" />
+				</div>
+			</div>
+
+			<div class="form-group col-md-10  text-center">
+				<button type="submit" class="btn btn-primary width100">提交</button>
+				<button type="reset" class="btn btn-default width100 ml15">重置</button>
+			</div>
+			<div class="clearfix"></div>
+		</div>
+	</div>
+</form>

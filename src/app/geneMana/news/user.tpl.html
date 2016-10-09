@@ -1,0 +1,30 @@
+
+<div class="contentBox">
+	<div class="subTitle">新闻列表<a type="button" class="btn btn-primary frMt3" href="/home/user/addUser"> <i class="fa fa-plus-square-o" aria-hidden="true"></i>  添加新闻 </a></div>
+	<div class="contList table-responsive">
+		<table class="table table-bordered">
+			<tr>
+				<td>新闻标题</td>
+				<td>发布时间</td>
+				<td>新闻作者</td>
+				<td>链接</td>
+				<td>简介</td>
+				<td>操作</td>
+			</tr>
+			<tr ng-repeat="userInfo in data.userInfoList">
+				<td>{{userInfo.newsTitle}}</td>
+				<td>{{userInfo.newsTime}}</td>
+				<td>{{userInfo.newsOrder}}</td>
+				<td>{{userInfo.newsContent}}</td>
+				<td>{{userInfo.newsIntroduce}}</td>
+				<td>
+					<a class="edit" href="/home/user/updateUser/{{userInfo.newsId}}"><i class="fa fa-edit" aria-hidden="true"></i>编辑</a>
+					<p class="delete" ng-click="delete(userInfo,$index)"><i class="fa fa-trash-o" aria-hidden="true"></i>删除</p>
+				</td>
+			</tr>
+		</table>
+		<div class="pages" ng-if="data.count >0">
+			<uib-pagination total-items="data.count" ng-model="data.page" num-pages="numPages" class="pagination-sm" max-size="maxSize"  force-ellipses="true" previous-text="上一页" next-text="下一页"></uib-pagination><!-- ng-change="commitCont();" -->
+		</div>
+	</div>
+</div>

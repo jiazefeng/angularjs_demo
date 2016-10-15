@@ -1,12 +1,11 @@
 <div class="contentBox">
-    <div class="subTitle">新闻列表<a type="button" class="btn btn-primary frMt3" href="/home/news/addNews"> <i class="fa fa-plus-square-o" aria-hidden="true"></i>  添加新闻 </a></div>
+    <div class="subTitle">新闻列表<a type="button" class="btn btn-primary frMt3" href="/home/news/addNew"> <i class="fa fa-plus-square-o" aria-hidden="true"></i>  添加新闻 </a></div>
     <div class="contList table-responsive">
         <table class="table table-bordered">
             <tr>
                 <td>新闻标题</td>
                 <td>新闻发布时间</td>
                 <td>新闻作者</td>
-                <td>新闻简介</td>
                 <td>新闻内容</td>
                 <td>操作</td>
             </tr>
@@ -15,7 +14,6 @@
                 <td>{{newsInfo.newTime}}</td>
                 <td>{{newsInfo.newOther}}</td>
                 <td>{{newsInfo.newContent}}</td>
-
                 <td>
                     <a class="edit" href="/home/news/updateNews/{{newsInfo.newId}}"><i class="fa fa-edit" aria-hidden="true"></i>编辑</a>
                     <p class="delete" ng-click="delete(newsInfo,$index)"><i class="fa fa-trash-o" aria-hidden="true"></i>删除</p>

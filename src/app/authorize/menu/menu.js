@@ -52,7 +52,7 @@ angular.module('robot.menu', [
                     scope:$scope
                 });
                 $scope.confirm = function(){
-                    $http.delete('/function/deleteFunction/' + id).success(function (result) {
+                    $http.get('/function/deleteFunction/' + id).success(function (result) {
                         if (result.error) {
                             errorHint(result.error);
                             return false;

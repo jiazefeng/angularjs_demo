@@ -1,4 +1,4 @@
-angular.module('robot.userInfo.mock',[
+angular.module('robot.newInfo.mock',[
   	'ngMockE2E',
   	'robot.common.mocksData'
 ])
@@ -55,7 +55,7 @@ angular.module('robot.userInfo.mock',[
 		}
 		var result = mocksData.resetData(data);
 		$httpBackend.whenGET('/user/getAdminInfo').respond(result);
-		$httpBackend.whenGET('/user/searchUserInfoList').passThrough();
+		$httpBackend.whenGET('/news/searchNewsInfoList').passThrough();
 		$httpBackend.whenDELETE(/\/user\/deleteUserInfo(\s\S)?/).passThrough();
 
 		var data2 = {

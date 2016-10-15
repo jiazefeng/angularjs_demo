@@ -9,7 +9,8 @@ angular.module('robotSupervise.app', [
     'mgcrea.ngStrap.modal',
     'robot.userLogin',
     'robot.authorize',
-    'robot.farm'
+    'robot.farm',
+    'robot.geneMana'
 ])
 
     .run(['$rootScope', 'CurrentUserService', '$httpBackend', 'mrBookMarksService', 'Session', '$state', '$http', '$filter', '$timeout', '$modal',

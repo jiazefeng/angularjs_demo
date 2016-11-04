@@ -1,4 +1,4 @@
-angular.module('robot.addNew.mock',[
+angular.module('robot.updateNew.mock',[
   	'ngMockE2E',
   	'robot.common.mocksData'
 ])

@@ -1,5 +1,5 @@
-angular.module('robot.addNew', [
-    'robot.addNew.mock',
+angular.module('robot.updateNew', [
+    'robot.updateNew.mock',
     'ui.router',
     'mgcrea.ngStrap.datepicker',
     'mgcrea.ngStrap.timepicker'
@@ -12,10 +12,10 @@ angular.module('robot.addNew', [
             parentsname:'新闻管理',
             views:{
                 'content':{
-                    controller: 'addNewController',
-                    templateUrl: 'geneMana/news/addNews/addNew.tpl.html',
+                    controller: 'updateNewController',
+                    templateUrl: 'geneMna/news/updateNews/updateNew.tpl.html',
                     resolve:{
-                        roleInfoData:['$http','$stateParams',function($http){
+                        newInfoData:['$http','$stateParams',function($http){
                             return $http.get('/news/addNew')
                         }]
                     }
@@ -23,7 +23,7 @@ angular.module('robot.addNew', [
             }
         });
     }])
-    .controller('addNewController', ['$modal','$scope', '$http','roleInfoData','$state','$filter','ApiBaseUrl',
+    .controller('updateNewController', ['$modal','$scope', '$http','newInfoData','$state','$filter','ApiBaseUrl',
         function($modal,$scope, $http,roleInfoData,$state,$filter,ApiBaseUrl) {
             var $list = $('#fileList'),
             // 优化retina, 在retina下这个值是2

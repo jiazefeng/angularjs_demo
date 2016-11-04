@@ -13,7 +13,7 @@ angular.module('robot.newInfo', [
                     controller: 'newController',
                     templateUrl: 'geneMana/news/new.tpl.html',
                     resolve: {
-                        userData: ['$http', function ($http) {
+                        newData: ['$http', function ($http) {
                             return $http.get('/news/searchNewsInfoList')
                         }]
                     },
@@ -21,12 +21,10 @@ angular.module('robot.newInfo', [
             }
         });
     }])
-    .controller('newController', ['$scope', '$http', 'userData','$modal',
-        function ($scope, $http, userData,$modal) {
-            $scope.data = userData.data;
+    .controller('newController', ['$scope', '$http', 'newData','$modal',
+        function ($scope, $http, newData,$modal) {
+            $scope.data = newData.data;
             $scope.maxSize = 6; //当最大页数大于10的时候，隐藏部分分页
-
-
             $scope.commitCont = function (form) {
                 var params = {
                     "index": $scope.data.page
@@ -36,7 +34,6 @@ angular.module('robot.newInfo', [
                 }).error(function (msg) {
                     errorHint('网络异常，请稍后重试!!!');
                 });
-
             };
 
             //删除数据

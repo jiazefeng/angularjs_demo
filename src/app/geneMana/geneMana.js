@@ -1,3 +1,6 @@
 angular.module('robot.geneMana', [
-    'robot.newInfo'
+    'robot.newInfo',
+    'robot.addNew',
+    'robot.updateNew',
+    'robot.deleteNew'
 ])

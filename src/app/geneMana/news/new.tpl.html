@@ -1,12 +1,14 @@
 <div class="contentBox">
-    <div class="subTitle">新闻列表<a type="button" class="btn btn-primary frMt3" href="/home/newInfo/addNews"> <i class="fa fa-plus-square-o" aria-hidden="true"></i>  添加新闻 </a></div>
+    <div class="subTitle">新闻列表<a type="button" class="btn btn-primary frMt3" href="/home/newInfo/addNew"> <i class="fa fa-plus-square-o" aria-hidden="true"></i>  添加新闻 </a></div>
     <div class="contList table-responsive">
         <table class="table table-bordered">
             <tr>
                 <td>新闻标题</td>
                 <td>新闻发布时间</td>
                 <td>新闻作者</td>
+                <td>新闻简介</td>
                 <td>新闻内容</td>
+                <td>其他相关链接</td>
                 <td>操作</td>
             </tr>
             <tr ng-repeat="newsInfo in data.newsList">

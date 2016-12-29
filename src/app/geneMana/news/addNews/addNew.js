@@ -6,8 +6,8 @@ angular.module('robot.addNew', [
 ])
 
     .config(['$stateProvider', function($stateProvider) {
-        $stateProvider.state('home.addNews', {
-            url: '/newInfo/addNews',
+        $stateProvider.state('home.addNew', {
+            url: '/newInfo/addNew',
             bookname:'添加新闻',
             parentsname:'新闻管理',
             views:{
@@ -16,7 +16,7 @@ angular.module('robot.addNew', [
                     templateUrl: 'geneMana/news/addNews/addNew.tpl.html',
                     resolve:{
                         roleInfoData:['$http','$stateParams',function($http){
-                            return $http.get('/news/addNew')
+                            //return $http.get('/new/addNew')
                         }]
                     }
                 }
@@ -163,7 +163,7 @@ angular.module('robot.addNew', [
                         phone: $scope.data.mobile,
                         personalProfile:$scope.data.personalProfile
                     }
-                    httpFunction('/new/addNew', params);
+                    httpFunction('/newsInfo/addNew', params);
                     return true;
                 }else{
                     errorHint('请正确填写所有信息!!!');

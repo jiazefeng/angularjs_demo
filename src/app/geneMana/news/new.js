@@ -14,7 +14,7 @@ angular.module('robot.newInfo', [
                     templateUrl: 'geneMana/news/new.tpl.html',
                     resolve: {
                         newData: ['$http', function ($http) {
-                            return $http.get('/news/searchNewsInfoList')
+                            return $http.get('/newsInfo/searchNewsInfoList')
                         }]
                     },
                 },
@@ -29,7 +29,7 @@ angular.module('robot.newInfo', [
                 var params = {
                     "index": $scope.data.page
                 }
-                $http.post('/user/searchUserByItem', params).success(function (result) {
+                $http.post('/news/searchNewByItem', params).success(function (result) {
                     $scope.data = result;
                 }).error(function (msg) {
                     errorHint('网络异常，请稍后重试!!!');
@@ -49,7 +49,7 @@ angular.module('robot.newInfo', [
                     scope:$scope
                 });
                 $scope.confirm = function(){
-                    $http.delete('/user/deleteUserInfo/' + data.uId).success(function (result) {
+                    $http.delete('/news/deleteNewsInfo/' + data.uId).success(function (result) {
                         if (result.error) {
                             errorHint(result.error);
                             return false;

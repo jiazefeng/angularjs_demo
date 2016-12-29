@@ -50,7 +50,7 @@ angular.module('robot.addNew.mock',[
 		}
 		var result = mocksData.resetData(data);
 		$httpBackend.whenGET('/role/searchRoleInfo').passThrough();
-		$httpBackend.whenPOST('/news/addNew').passThrough();
+		$httpBackend.whenPOST('/newsInfo/addNew').passThrough();
 		var data2 = {
 
 		}

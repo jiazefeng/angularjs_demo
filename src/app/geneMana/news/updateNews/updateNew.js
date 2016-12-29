@@ -6,8 +6,8 @@ angular.module('robot.updateNew', [
 ])
 
     .config(['$stateProvider', function($stateProvider) {
-        $stateProvider.state('home.addNews', {
-            url: '/newInfo/addNews',
+        $stateProvider.state('home.updateNews', {
+            url: '/newInfo/updateNews',
             bookname:'添加新闻',
             parentsname:'新闻管理',
             views:{

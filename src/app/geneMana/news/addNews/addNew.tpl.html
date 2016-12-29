@@ -5,8 +5,8 @@
 			<div class="form-group col-md-10">
 				<label class="col-md-3 control-label">新闻标题：</label>
 				<div class="col-md-6">
-					<input type="text" class="form-control" name="username" ng-maxlength="20" required
-						   ng-model="data.userName"  ng-required="true" placeholder="请输入名"/>
+					<input type="text" class="form-control" name="newTitle" ng-maxlength="20" required
+						   ng-model="data.newTitle"  ng-required="true" placeholder="请输入名"/>
 	              <span style="color:red" ng-show="myForm.username.$error.maxlength">
                    最大长度为20
                </span>
@@ -14,15 +14,22 @@
 			</div>
 			<div class="form-group col-md-10">
 				<label class="col-md-3 control-label">新闻发布时间：</label>
-				<div class="col-md-6">
-					<input type="text" class="form-control" name="userRealName" ng-maxlength="20" ng-model="data.userRealName" placeholder=""/>
+				<div class="col-md-9">
+					<div class="form-group  col-md-6">
+						<input class="form-control" ng-model="data.newTime" data-date-format="yyyy-MM-dd"
+							   data-autoclose="1" placeholder="Date" bs-datepicker type="text">
+					</div>
+
+					<div class="form-group col-md-3">
+						<input type="text" class="form-control" placeholder="" ng-model="data.newTime"  data-time-format="HH:mm:ss" data-length="3" data-autoclose="1" placeholder="Time" bs-timepicker  data-arrow-behavior="picker"/>
+					</div>
 				</div>
 			</div>
 			<div class="form-group col-md-10">
 				<label class="col-md-3 control-label">新闻作者：</label>
 				<div class="col-md-6">
-					<input type="text" class="form-control" name="username" ng-maxlength="20" required
-						   ng-model="data.userName"  ng-required="true" placeholder="请输入新闻作者"/>
+					<input type="text" class="form-control" name="newOther" ng-maxlength="20" required
+						   ng-model="data.newOther"  ng-required="true" placeholder="请输入新闻作者"/>
 				</div>
 			</div>
 
@@ -30,13 +37,13 @@
 			<div class="form-group col-md-10">
 				<label class="col-md-3 control-label">新闻简介：</label>
 				<div class="col-md-6">
-					<input type="text" class="form-control"
-						   ng-model="data.personalProfile" />
+					<input type="text" class="form-control" name="newContent"
+						   ng-model="data.newContent" />
 				</div>
 			</div>
 
 			<div class="form-group col-md-10">
-				<label class="col-md-3 control-label">头像：</label>
+				<label class="col-md-3 control-label">图片：</label>
 				<div class="col-md-6">
 					<div class="pictureBox">
 						<div id="uploader-demo">
@@ -49,11 +56,13 @@
 			<div class="form-group col-md-10">
 				<label class="col-md-3 control-label">新闻链接：</label>
 				<div class="col-md-6">
-					<input type="text" class="form-control" name="phone" maxlength="11" ng-pattern="/^\d{11}$/"
-						   ng-model="data.mobile" required ng-required="true" placeholder="填写您的电话号码"/>
-	           <span style="color:red" ng-show="myForm.phone.$error.pattern">
-                   只能输入 11 位数字
-               </span>
+					<input type="text" class="form-control" name="newLink"
+						   ng-model="data.newLink" />
+					<!--<input type="text" class="form-control" name="newLink" maxlength="11" ng-pattern="/^\d{11}$/"-->
+						   <!--ng-model="data.mobile" required ng-required="true" placeholder="填写您的电话号码"/>-->
+	           <!--<span style="color:red" ng-show="myForm.phone.$error.pattern">-->
+                   <!--只能输入 11 位数字-->
+               <!--</span>-->
 				</div>
 			</div>
 

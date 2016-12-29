@@ -3,7 +3,7 @@ angular.module('robot.app.config', [
 ])
 
 //contants
-    .constant('ApiBaseUrl', 'http://localhost:8080/')
+    .constant('ApiBaseUrl', 'http://localhost:8088/')
 // .constant('ApiBaseUrl', 'http://lifeowner.robot.cn/')
 //.constant('AppDefaultRootUrl', '/home/index')
     .constant('AppDefaultRootUrl', '/userLogin')

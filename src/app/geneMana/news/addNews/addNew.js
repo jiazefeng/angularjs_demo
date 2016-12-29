@@ -102,11 +102,8 @@ angular.module('robot.addNew', [
                 $( '#'+file.id ).find('.progress').remove();
             });
 
-            $scope.data = roleInfoData.data;
-            $scope.data.role = roleInfoData.data.roleInfo[0];
-
             var back = function () {
-                $state.go("home.user");
+                $state.go("home.newInfo");
             };
 
             var errorHint = function (message) {
@@ -155,13 +152,12 @@ angular.module('robot.addNew', [
                 }
                 if(myForm.$valid){
                     var params = {
-                        uName: $scope.data.userName,
-                        uRealName:$scope.data.userRealName,
-                        uroleId: $scope.data.role.roleId,
-                        uPwd:$scope.data.pwd,
-                        uHendImg: $scope.data.img,
-                        phone: $scope.data.mobile,
-                        personalProfile:$scope.data.personalProfile
+                        newTitle: $scope.data.newTitle,
+                        newTime:$scope.data.newTime,
+                        newOther: $scope.data.newOther,
+                        newContent:$scope.data.newContent,
+                        newIntro: $scope.data.img,
+                        newLink: $scope.data.newLink
                     }
                     httpFunction('/newsInfo/addNew', params);
                     return true;

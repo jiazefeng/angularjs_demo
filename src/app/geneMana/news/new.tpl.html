@@ -13,9 +13,11 @@
             </tr>
             <tr ng-repeat="newsInfo in data.newsList">
                 <td>{{newsInfo.newTitle}}</td>
-                <td>{{newsInfo.newTime}}</td>
+                <td>{{newsInfo.newTime  | date:'yyyy-MM-dd HH:mm:ss'}}</td>
                 <td>{{newsInfo.newOther}}</td>
                 <td>{{newsInfo.newContent}}</td>
+                <td>{{newsInfo.newIntro}}</td>
+                <td>{{newsInfo.newLink}}</td>
                 <td>
                     <a class="edit" href="/home/news/updateNews/{{newsInfo.newId}}"><i class="fa fa-edit" aria-hidden="true"></i>编辑</a>
                     <p class="delete" ng-click="delete(newsInfo,$index)"><i class="fa fa-trash-o" aria-hidden="true"></i>删除</p>

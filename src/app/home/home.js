@@ -177,7 +177,7 @@ angular.module('robot.home', [
                 'content': {
                     controller: 'indexController',
                     // templateUrl: 'home/wuye/wuye.tpl.html'
-                    template: '<h4>欢迎您来到管理系统！</h4>'
+                    template: '<h4>欢迎您来到奶牛场信息管理系统！</h4>'
                 }
             }
         })

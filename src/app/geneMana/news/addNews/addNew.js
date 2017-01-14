@@ -156,7 +156,7 @@ angular.module('robot.addNew', [
                         newTime:$scope.data.newTime,
                         newOther: $scope.data.newOther,
                         newContent:$scope.data.newContent,
-                        newIntro: $scope.data.img,
+                        newIntro: $scope.data.newIntro,
                         newLink: $scope.data.newLink
                     }
                     httpFunction('/newsInfo/addNew', params);

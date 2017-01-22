@@ -21,8 +21,8 @@ angular.module('robot.feed', [
             }
         });
     }])
-    .controller('feedController', ['$scope', '$http', 'feedListData', '$modal', '$uibModal',
-        function ($scope, $http, feedListData, $modal, $uibModal) {
+    .controller('feedController', ['$scope', '$http', 'feedListData', '$modal','$uibModal',
+        function ($scope, $http, feedListData, $modal,$uibModal) {
             $scope.data = feedListData.data;
             $scope.maxSize = 6; //当最大页数大于10的时候，隐藏部分分页
 
@@ -30,7 +30,7 @@ angular.module('robot.feed', [
                 var params = {
                     "index": $scope.data.page
                 }
-                $http.post('/user/searchUserByItem', params).success(function (result) {
+                $http.post('/feed/getFeedInfoList', params).success(function (result) {
                     $scope.data = result;
                 }).error(function (msg) {
                     errorHint('网络异常，请稍后重试!!!');
@@ -51,12 +51,12 @@ angular.module('robot.feed', [
                     scope: $scope
                 });
                 $scope.confirm = function () {
-                    $http.delete('/ranchingType/deleteRanchingType/' + data.rtId).success(function (result) {
+                    $http.get('/feed/deleteFeed/' + data.feedId).success(function (result) {
                         if (result.error) {
                             errorHint(result.error);
                             return false;
                         } else {
-                            $scope.data.ranchingTypeList.splice(index, 1);
+                            $scope.data.feedInfoList.splice(index, 1);
                         }
                     }).error(function (msg) {
                         errorHint('网络异常，请稍后重试!!!');
@@ -76,16 +76,16 @@ angular.module('robot.feed', [
                 });
             };
 
-            //添加/修改畜牧种类
+            //添加/修改物资
             $scope.openModal = function (size, id, index) {
                 var modalInstance = $uibModal.open({
                     animation: true,
-                    templateUrl: 'farm/ranchingType/addRanchingType.tpl.html',
+                    templateUrl: 'MaterialsManager/feedManager/addOrUpdateFeed.tpl.html',
                     size: size,
-                    controller: 'addRanchingTypeModalInstanceCtrl',
+                    controller: 'addFeedModalInstanceCtrl',
                     resolve: {
-                        ranchingTypeData: ['$http', '$stateParams', function ($http, $stateParams) {
-                            return $http.get('/ranchingType/searchRanchingTypeById/' + id);
+                        feedData: ['$http', '$stateParams', function ($http, $stateParams) {
+                            return $http.get('/feed/searchFeedById/' + id);
                         }],
                         dataList: ['$http', '$stateParams', function ($http, $stateParams) {
                             var oldData = {
@@ -101,120 +101,27 @@ angular.module('robot.feed', [
         }])
 
 
-    .controller('addRanchingTypeModalInstanceCtrl', ['$modal', '$scope', '$uibModalInstance', '$http', 'ranchingTypeData', '$state', 'dataList', 'ApiBaseUrl', '$timeout',
-        function ($modal, $scope, $uibModalInstance, $http, ranchingTypeData, $state, dataList, ApiBaseUrl, $timeout) {
-            $scope.data = ranchingTypeData.data;
+    .controller('addFeedModalInstanceCtrl', ['$modal', '$scope', '$uibModalInstance', '$http', 'feedData', '$state', 'dataList', 'ApiBaseUrl', '$timeout',
+        function ($modal, $scope, $uibModalInstance, $http, feedData, $state, dataList, ApiBaseUrl, $timeout) {
+            $scope.data = feedData.data;
 
-            $scope.modalTitle = "添加种类";
-            if ($scope.data.ranchingType) {
-                $scope.modalTitle = "编辑种类";
-                //所属种类赋值
-                if($scope.data.ranchingTypeList){
-                    for (var i = 0; i < $scope.data.ranchingTypeList.length; i++) {
-                        if ($scope.data.ranchingTypeList[i].id == $scope.data.ranchingType.rtParentId) {
-                            $scope.data.ranchingTypeInfo = $scope.data.ranchingTypeList[i];
-                        }
-                    }
-                    ;
-                }
+            $scope.modalTitle = "添加饲料";
+            if ($scope.data.feedInfo) {
+                $scope.modalTitle = "编辑饲料";
             }
             ;
-            var uploader;
-            $timeout(function () {
-                var $list = $('#fileList');
-                // 优化retina, 在retina下这个值是2
-                ratio = window.devicePixelRatio || 1;
-                // 缩略图大小
-                thumbnailWidth = 100 * ratio;
-                thumbnailHeight = 100 * ratio;
-                // Web Uploader实例
-                // 初始化Web Uploader
-                uploader = WebUploader.create({
-                    // 自动上传。
-                    auto: true,
-                    // 文件接收服务端。
-                    server: ApiBaseUrl + 'file/upload/uploadImg',
-                    //server: 'http://localhost:8080/file/upload/uploadImg',
-                    // 内部根据当前运行是创建，可能是input元素，也可能是flash.
-                    pick: '#filePicker',
-                    // 只允许选择文件，可选。
-                    accept: {
-                        title: 'Images',
-                        extensions: 'gif,jpg,jpeg,bmp,png',
-                        mimeTypes: 'image/*'
-                    }
-                });
-
-                // 当有文件添加进来的时候
-                uploader.on('fileQueued', function (file) {
-                    var $li = $(
-                            '<div id="' + file.id + '" class="file-item thumbnail">' +
-                            '<img>' +
-                            '<div class="info">' + file.name + '</div>' +
-                            '</div>'
-                        ),
-                        $img = $li.find('img');
-                    $list.html($li);
-                    // 创建缩略图
-                    uploader.makeThumb(file, function (error, src) {
-                        if (error) {
-                            $img.replaceWith('<span>不能预览</span>');
-                            return;
-                        }
-                        $img.attr('src', src);
-                    }, thumbnailWidth, thumbnailHeight);
-                });
-
-                // 文件上传过程中创建进度条实时显示。
-                uploader.on('uploadProgress', function (file, percentage) {
-                    var $li = $('#' + file.id),
-                        $percent = $li.find('.progress span');
-                    // 避免重复创建
-                    if (!$percent.length) {
-                        $percent = $('<p class="progress"><span></span></p>')
-                            .appendTo($li)
-                            .find('span');
-                    }
-                    $percent.css('width', percentage * 100 + '%');
-                });
-                // 文件上传成功，给item添加成功class, 用样式标记上传成功。
-                uploader.on('uploadSuccess', function (file, response) {
-                    $('#' + file.id).addClass('upload-state-done');
-                    $scope.data.ranchingType.rtImge = response._raw;
-                });
-                // 文件上传失败，现实上传出错。
-                uploader.on('uploadError', function (file) {
-                    var $li = $('#' + file.id),
-                        $error = $li.find('div.error');
-                    // 避免重复创建
-                    if (!$error.length) {
-                        $error = $('<div class="error"></div>').appendTo($li);
-                    }
-                    $error.text('上传失败');
-                });
-                // 完成上传完了，成功或者失败，先删除进度条。
-                uploader.on('uploadComplete', function (file) {
-                    $('#' + file.id).find('.progress').remove();
-                });
-            }, 0);
 
             $scope.commitForm = function (myForm) {
-                if ($('#fileList div').length > 0) {
-                    uploader.upload();
-                }
                 if (myForm.$valid) {
-                    if ($scope.data.ranchingType.rtId) {
+                    if ($scope.data.feedInfo.feedId) {
                         //编辑
                         var updateparams = {
-                            rtId: $scope.data.ranchingType.rtId,
-                            rtName: $scope.data.ranchingType.rtName,
-                            rtNumber: $scope.data.ranchingType.rtNumber,
-                            rtImge: $scope.data.ranchingType.rtImge,
-                            rtProfile: $scope.data.ranchingType.rtProfile,
-                            rtParentId: $scope.data.ranchingTypeInfo ? $scope.data.ranchingTypeInfo.id : "",
-                            rtLevel: $scope.data.ranchingType.rtLevel
+                            feedId: $scope.data.feedInfo.feedId,
+                            feedName: $scope.data.feedInfo.feedName,
+                            describe: $scope.data.feedInfo.feedDescribe,
+                            type: $scope.data.feedInfo.feedType
                         }
-                        $http.post('/ranchingType/editRanchingType', updateparams)
+                        $http.post('/feed/editFeed', updateparams)
                             .success(function (result) {
                                 if (result.error) {
                                     Tips(result.error);
@@ -229,7 +136,7 @@ angular.module('robot.feed', [
                                         placement: 'center',
                                         backdrop: false,
                                         onHide: function () {
-                                            dataList.data.ranchingTypeList = result.ranchingTypeList;
+                                            dataList.data.feedInfoList = result.feedInfoList;
                                             $uibModalInstance.close();
                                         }
                                     });
@@ -242,14 +149,11 @@ angular.module('robot.feed', [
                     } else {
                         //添加
                         var params = {
-                            rtName: $scope.data.ranchingType.rtName,
-                            rtNumber: $scope.data.ranchingType.rtNumber,
-                            rtImge: $scope.data.ranchingType.rtImge,
-                            rtProfile: $scope.data.ranchingType.rtProfile,
-                            rtParentId: $scope.data.ranchingTypeInfo ? $scope.data.ranchingTypeInfo.id : "",
-                            rtLevel: $scope.data.ranchingType.rtLevel
+                            feedName: $scope.data.feedInfo.feedName,
+                            describe: $scope.data.feedInfo.feedDescribe,
+                            type: $scope.data.feedInfo.feedType
                         }
-                        $http.post('/ranchingType/addRanchingType', params)
+                        $http.post('/feed/addFeed', params)
                             .success(function (result) {
                                 if (result.error) {
                                     Tips(result.error);
@@ -264,7 +168,7 @@ angular.module('robot.feed', [
                                         placement: 'center',
                                         backdrop: false,
                                         onHide: function () {
-                                            dataList.data.ranchingTypeList = result.ranchingTypeList;
+                                            dataList.data.feedInfoList = result.feedInfoList;
                                             dataList.data.count = result.count;
                                             $uibModalInstance.close();
                                         }

@@ -1,6 +1,6 @@
 
 <div class="contentBox">
-	<div class="subTitle">饲料列表<button ng-click="openModal(lg)" type="button" class="btn btn-primary frMt3"><i class="fa fa-plus-square-o" aria-hidden="true"></i>  添加种类 </button></div>
+	<div class="subTitle">饲料列表<button ng-click="openModal(lg)" type="button" class="btn btn-primary frMt3"><i class="fa fa-plus-square-o" aria-hidden="true"></i>  添加物资 </button></div>
 	<div class="contList table-responsive">
 		<table class="table table-bordered">
 			<tr>
@@ -13,11 +13,11 @@
 			<tr ng-repeat="feedInfo in data.feedInfoList">
 				<td>{{$index+1}}</td>
 				<td>{{feedInfo.feedName}}</td>
-				<td>{{feedInfo.describe}}</td>
-				<td>{{feedInfo.type}}</td>
+				<td>{{feedInfo.feedType}}</td>
+				<td>{{feedInfo.feedDescribe}}</td>
 				<td>
-					<p class="edit" ng-click="openModal(lg,ranchingType.rtId,$index)"><i class="fa fa-edit" aria-hidden="true"></i>编辑</p>
-					<p class="delete" ng-click="delete(ranchingType,$index)"><i class="fa fa-trash-o" aria-hidden="true"></i>删除</p>
+					<p class="edit" ng-click="openModal(lg,feedInfo.feedId,$index)"><i class="fa fa-edit" aria-hidden="true"></i>编辑</p>
+					<p class="delete" ng-click="delete(feedInfo,$index)"><i class="fa fa-trash-o" aria-hidden="true"></i>删除</p>
 				</td>
 			</tr>
 		</table>

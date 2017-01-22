@@ -57,10 +57,10 @@ angular.module('robot.feed.mock',[
 		//$httpBackend.whenGET('/user/getAdminInfo').respond(result);
 
 		$httpBackend.whenGET('/feed/getFeedInfoList').passThrough();
-		//$httpBackend.whenDELETE(/\/ranchingType\/deleteRanchingType(\s\S)?/).passThrough();
-		//$httpBackend.whenGET(/\/ranchingType\/searchRanchingTypeById(\s\S)?/).passThrough();
-		//$httpBackend.whenPOST('/ranchingType/editRanchingType').passThrough();
-		//$httpBackend.whenPOST('/ranchingType/addRanchingType').passThrough();
+		$httpBackend.whenGET(/\/feed\/deleteFeed(\s\S)?/).passThrough();
+		$httpBackend.whenGET(/\/feed\/searchFeedById(\s\S)?/).passThrough();
+		$httpBackend.whenPOST('/feed/editFeed').passThrough();
+		$httpBackend.whenPOST('/feed/addFeed').passThrough();
 
 		var data2 = {
 

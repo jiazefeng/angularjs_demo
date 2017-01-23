@@ -1,41 +1,40 @@
-angular.module('robot.feed', [
-    'robot.feed.mock',
+angular.module('robot.milk', [
+    'robot.milk.mock',
     'ui.router'
 ])
 
     .config(['$stateProvider', function ($stateProvider) {
-        $stateProvider.state('home.feed', {
-            url: '/feed',
-            bookname: '饲料列表',
-            parentsname: '物资管理',
+        $stateProvider.state('home.milk', {
+            url: '/milk',
+            bookname: '产奶管理列表',
+            parentsname: '牛群管理',
             views: {
                 'content': {
-                    controller: 'feedController',
-                    templateUrl: 'MaterialsManager/feedManager/feed.tpl.html',
+                    controller: 'milkController',
+                    templateUrl: 'farm/milkManage/milk.tpl.html',
                     resolve: {
-                        feedListData: ['$http', function ($http) {
-                            return $http.get('/feed/getFeedInfoList')
+                        milkListData: ['$http', function ($http) {
+                            return $http.get('/milk/getMilkInfoList')
                         }]
                     },
                 },
             }
         });
     }])
-    .controller('feedController', ['$scope', '$http', 'feedListData', '$modal','$uibModal',
-        function ($scope, $http, feedListData, $modal,$uibModal) {
-            $scope.data = feedListData.data;
+    .controller('milkController', ['$scope', '$http', 'milkListData', '$modal', '$uibModal',
+        function ($scope, $http, milkListData, $modal, $uibModal) {
+            $scope.data = milkListData.data;
             $scope.maxSize = 6; //当最大页数大于10的时候，隐藏部分分页
 
             $scope.commitCont = function (form) {
                 var params = {
                     "index": $scope.data.page
                 }
-                $http.post('/feed/getFeedInfoListByItem', params).success(function (result) {
+                $http.post('/milk/getMilkInfoListByItem', params).success(function (result) {
                     $scope.data = result;
                 }).error(function (msg) {
                     errorHint('网络异常，请稍后重试!!!');
                 });
-
             };
 
             //删除数据
@@ -51,12 +50,12 @@ angular.module('robot.feed', [
                     scope: $scope
                 });
                 $scope.confirm = function () {
-                    $http.get('/feed/deleteFeed/' + data.feedId).success(function (result) {
+                    $http.get('/milk/deleteMilkInfo/' + data.milkId).success(function (result) {
                         if (result.error) {
                             errorHint(result.error);
                             return false;
                         } else {
-                            $scope.data.feedInfoList.splice(index, 1);
+                            $scope.data.milkInfoList.splice(index, 1);
                         }
                     }).error(function (msg) {
                         errorHint('网络异常，请稍后重试!!!');
@@ -76,16 +75,16 @@ angular.module('robot.feed', [
                 });
             };
 
-            //添加/修改物资
+            //添加/修改信息
             $scope.openModal = function (size, id, index) {
                 var modalInstance = $uibModal.open({
                     animation: true,
-                    templateUrl: 'MaterialsManager/feedManager/addOrUpdateFeed.tpl.html',
+                    templateUrl: 'farm/milkManage/addOrUpdateMilk.tpl.html',
                     size: size,
-                    controller: 'addFeedModalInstanceCtrl',
+                    controller: 'addMilkModalInstanceCtrl',
                     resolve: {
-                        feedData: ['$http', '$stateParams', function ($http, $stateParams) {
-                            return $http.get('/feed/searchFeedById/' + id);
+                        milkData: ['$http', '$stateParams', function ($http, $stateParams) {
+                            return $http.get('/milk/getMilkInfoById/' + id);
                         }],
                         dataList: ['$http', '$stateParams', function ($http, $stateParams) {
                             var oldData = {
@@ -101,27 +100,26 @@ angular.module('robot.feed', [
         }])
 
 
-    .controller('addFeedModalInstanceCtrl', ['$modal', '$scope', '$uibModalInstance', '$http', 'feedData', '$state', 'dataList', 'ApiBaseUrl', '$timeout',
-        function ($modal, $scope, $uibModalInstance, $http, feedData, $state, dataList, ApiBaseUrl, $timeout) {
-            $scope.data = feedData.data;
+    .controller('addMilkModalInstanceCtrl', ['$modal', '$scope', '$uibModalInstance', '$http', 'milkData', '$state', 'dataList', 'ApiBaseUrl', '$timeout',
+        function ($modal, $scope, $uibModalInstance, $http, milkData, $state, dataList, ApiBaseUrl, $timeout) {
+            $scope.data = milkData.data;
 
-            $scope.modalTitle = "添加饲料";
-            if ($scope.data.feedInfo) {
-                $scope.modalTitle = "编辑饲料";
+            $scope.modalTitle = "添加信息";
+            if ($scope.data.milkInfo) {
+                $scope.modalTitle = "编辑信息";
             }
             ;
 
             $scope.commitForm = function (myForm) {
                 if (myForm.$valid) {
-                    if ($scope.data.feedInfo.feedId) {
+                    if ($scope.data.milkInfo.milkId) {
                         //编辑
                         var updateparams = {
-                            feedId: $scope.data.feedInfo.feedId,
-                            feedName: $scope.data.feedInfo.feedName,
-                            describe: $scope.data.feedInfo.feedDescribe,
-                            type: $scope.data.feedInfo.feedType
+                            milkId: $scope.data.milkInfo.milkId,
+                            individualRegistration: $scope.data.milkInfo.individualRegistration,
+                            groupRegistration: $scope.data.milkInfo.groupRegistration
                         }
-                        $http.post('/feed/editFeed', updateparams)
+                        $http.post('/milk/editMilkInfo', updateparams)
                             .success(function (result) {
                                 if (result.error) {
                                     Tips(result.error);
@@ -136,7 +134,7 @@ angular.module('robot.feed', [
                                         placement: 'center',
                                         backdrop: false,
                                         onHide: function () {
-                                            dataList.data.feedInfoList = result.feedInfoList;
+                                            dataList.data.milkInfoList = result.milkInfoList;
                                             $uibModalInstance.close();
                                         }
                                     });
@@ -149,11 +147,10 @@ angular.module('robot.feed', [
                     } else {
                         //添加
                         var params = {
-                            feedName: $scope.data.feedInfo.feedName,
-                            describe: $scope.data.feedInfo.feedDescribe,
-                            type: $scope.data.feedInfo.feedType
+                            individualRegistration: $scope.data.milkInfo.individualRegistration,
+                            groupRegistration: $scope.data.milkInfo.groupRegistration
                         }
-                        $http.post('/feed/addFeed', params)
+                        $http.post('/milk/addMilkInfo', params)
                             .success(function (result) {
                                 if (result.error) {
                                     Tips(result.error);
@@ -168,7 +165,7 @@ angular.module('robot.feed', [
                                         placement: 'center',
                                         backdrop: false,
                                         onHide: function () {
-                                            dataList.data.feedInfoList = result.feedInfoList;
+                                            dataList.data.milkInfoList = result.milkInfoList;
                                             dataList.data.count = result.count;
                                             $uibModalInstance.close();
                                         }

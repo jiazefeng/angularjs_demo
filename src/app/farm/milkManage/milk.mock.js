@@ -1,4 +1,4 @@
-angular.module('robot.feed.mock',[
+angular.module('robot.milk.mock',[
   	'ngMockE2E',
   	'robot.common.mocksData'
 ])
@@ -56,12 +56,12 @@ angular.module('robot.feed.mock',[
 		var result = mocksData.resetData(data);
 		//$httpBackend.whenGET('/user/getAdminInfo').respond(result);
 
-		$httpBackend.whenGET('/feed/getFeedInfoList').passThrough();
-		$httpBackend.whenGET(/\/feed\/deleteFeed(\s\S)?/).passThrough();
-		$httpBackend.whenGET(/\/feed\/searchFeedById(\s\S)?/).passThrough();
-		$httpBackend.whenPOST('/feed/editFeed').passThrough();
-		$httpBackend.whenPOST('/feed/addFeed').passThrough();
-		$httpBackend.whenPOST('/feed/getFeedInfoListByItem').passThrough();
+		$httpBackend.whenGET('/milk/getMilkInfoList').passThrough();
+		$httpBackend.whenGET(/\/milk\/deleteMilkInfo(\s\S)?/).passThrough();
+		$httpBackend.whenGET(/\/milk\/getMilkInfoById(\s\S)?/).passThrough();
+		$httpBackend.whenPOST('/milk/editMilkInfo').passThrough();
+		$httpBackend.whenPOST('/milk/addMilkInfo').passThrough();
+		$httpBackend.whenPOST('/milk/getMilkInfoListByItem').passThrough();
 
 		var data2 = {
 

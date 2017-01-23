@@ -1,0 +1,30 @@
+<div class="modalBox">
+    <div class="modal-header">
+        <h3 class="modal-title">{{modalTitle}}</h3>
+    </div>
+    <div class="modal-body">
+        <form class="form-horizontal" name="myForm" ng-submit="commitCont(myForm);">
+            <div class="form-group col-md-10 col-sm-6">
+                <label class="col-md-4 control-label">个体产奶登记:</label>
+
+                <div class="col-md-8">
+                    <input type="text" class="form-control" ng-model="data.milkInfo.individualRegistration" required
+                           placeholder="个体产奶登记"/>
+                </div>
+            </div>
+            <div class="form-group col-md-10 col-sm-6">
+                <label class="col-md-4 control-label">机构产奶登记:</label>
+
+                <div class="col-md-8">
+                    <input type="text" class="form-control" name="groupRegistration" ng-model="data.milkInfo.groupRegistration" required
+                           placeholder="机构产奶登记"/>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="modal-footer text-center">
+        <button class="btn btn-primary width100" type="submit" ng-click="ok(myForm)">确定</button>
+        <button class="btn btn-warning width100" type="button" ng-click="cancel()">取消</button>
+    </div>
+
+</div>    

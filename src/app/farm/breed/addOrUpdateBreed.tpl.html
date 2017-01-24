@@ -1,0 +1,38 @@
+<div class="modalBox">
+    <div class="modal-header">
+        <h3 class="modal-title">{{modalTitle}}</h3>
+    </div>
+    <div class="modal-body">
+        <form class="form-horizontal" name="myForm" ng-submit="commitCont(myForm);">
+            <div class="form-group col-md-10 col-sm-6">
+                <label class="col-md-4 control-label">类别:</label>
+
+                <div class="col-md-8">
+                    <input type="text" class="form-control" ng-model="data.breedInfo.breedType" required
+                           placeholder="类别"/>
+                </div>
+            </div>
+            <div class="form-group col-md-10 col-sm-6">
+                <label class="col-md-4 control-label">数量:</label>
+
+                <div class="col-md-8">
+                    <input type="text" class="form-control" name="breedNum" ng-model="data.breedInfo.breedNum" required
+                           placeholder="数量"/>
+                </div>
+            </div>
+            <div class="form-group col-md-10 col-sm-6">
+                <label class="col-md-4 control-label">牛舍号:</label>
+
+                <div class="col-md-8">
+                    <input type="text" class="form-control" name="breedHomeNum" ng-model="data.breedInfo.breedHomeNum" required
+                           placeholder="牛舍号"/>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="modal-footer text-center">
+        <button class="btn btn-primary width100" type="submit" ng-click="ok(myForm)">确定</button>
+        <button class="btn btn-warning width100" type="button" ng-click="cancel()">取消</button>
+    </div>
+
+</div>    

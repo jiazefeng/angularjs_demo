@@ -1,0 +1,38 @@
+<div class="modalBox">
+    <div class="modal-header">
+        <h3 class="modal-title">{{modalTitle}}</h3>
+    </div>
+    <div class="modal-body">
+        <form class="form-horizontal" name="myForm" ng-submit="commitCont(myForm);">
+            <div class="form-group col-md-10 col-sm-6">
+                <label class="col-md-4 control-label">疾病名称:</label>
+
+                <div class="col-md-8">
+                    <input type="text" class="form-control" ng-model="data.illInfo.illName" required
+                           placeholder="疾病名称"/>
+                </div>
+            </div>
+            <div class="form-group col-md-10 col-sm-6">
+                <label class="col-md-4 control-label">对应药物:</label>
+
+                <div class="col-md-8">
+                    <input type="text" class="form-control" ng-model="data.illInfo.illYW" required
+                           placeholder="对应药物"/>
+                </div>
+            </div>
+            <div class="form-group col-md-10 col-sm-6">
+                <label class="col-md-4 control-label">疾病症状:</label>
+
+                <div class="col-md-8">
+                    <input type="text" class="form-control"  ng-model="data.illInfo.illZZ" required
+                           placeholder="疾病症状"/>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="modal-footer text-center">
+        <button class="btn btn-primary width100" type="submit" ng-click="ok(myForm)">确定</button>
+        <button class="btn btn-warning width100" type="button" ng-click="cancel()">取消</button>
+    </div>
+
+</div>    

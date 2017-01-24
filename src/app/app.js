@@ -11,7 +11,8 @@ angular.module('robotSupervise.app', [
     'robot.authorize',
     'robot.farm',
     'robot.geneMana',
-    'robot.materialsManager'
+    'robot.materialsManager',
+    'robot.ill'
 ])
 
     .run(['$rootScope', 'CurrentUserService', '$httpBackend', 'mrBookMarksService', 'Session', '$state', '$http', '$filter', '$timeout', '$modal',

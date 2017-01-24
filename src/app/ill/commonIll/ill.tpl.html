@@ -1,0 +1,28 @@
+
+<div class="contentBox">
+	<div class="subTitle">常见疾病列表<button ng-click="openModal(lg)" type="button" class="btn btn-primary frMt3"><i class="fa fa-plus-square-o" aria-hidden="true"></i>  添加信息 </button></div>
+	<div class="contList table-responsive">
+		<table class="table table-bordered">
+			<tr>
+				<td>编号</td>
+				<td>疾病名称</td>
+				<td>疾病常见症状</td>
+				<td>对应药物</td>
+				<td>操作</td>
+			</tr>
+			<tr ng-repeat="illInfo in data.illInfoList">
+				<td>{{$index+1}}</td>
+				<td>{{illInfo.illName}}</td>
+				<td>{{illInfo.illZZ}}</td>
+				<td>{{illInfo.illYW}}</td>
+				<td>
+					<p class="edit" ng-click="openModal(lg,illInfo.illId,$index)"><i class="fa fa-edit" aria-hidden="true"></i>编辑</p>
+					<p class="delete" ng-click="delete(illInfo,$index)"><i class="fa fa-trash-o" aria-hidden="true"></i>删除</p>
+				</td>
+			</tr>
+		</table>
+		<div class="pages" ng-if="data.count >0">
+			<uib-pagination total-items="data.count" ng-model="data.page" num-pages="numPages" class="pagination-sm" max-size="maxSize"  force-ellipses="true" previous-text="上一页" next-text="下一页" ng-change="commitCont();"></uib-pagination><!-- ng-change="commitCont();" -->
+		</div>
+	</div>
+</div>

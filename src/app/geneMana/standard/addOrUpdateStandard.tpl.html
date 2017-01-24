@@ -1,0 +1,52 @@
+<div class="modalBox">
+    <div class="modal-header">
+        <h3 class="modal-title">{{modalTitle}}</h3>
+    </div>
+    <div class="modal-body" style="height: 437px">
+        <form class="form-horizontal" name="myForm" ng-submit="commitCont(myForm);">
+            <div class="form-group col-md-12 col-sm-6">
+                <label class="col-md-3 control-label">标准编号:</label>
+
+                <div class="col-md-8">
+                    <input type="text" class="form-control" ng-model="data.standardInfo.standardNum" required
+                           placeholder="标准编号"/>
+                </div>
+            </div>
+            <div class="form-group col-md-12 col-sm-6">
+                <label class="col-md-3 control-label">标准标题:</label>
+
+                <div class="col-md-8">
+                    <input type="text" class="form-control" ng-model="data.standardInfo.standardTitle" required
+                           placeholder="标准标题"/>
+                </div>
+            </div>
+            <div class="form-group col-md-12 col-sm-6">
+                <label class="col-md-3 control-label">时间:</label>
+
+                <div class="col-md-9">
+                    <div class="form-group  col-md-9">
+                        <input class="form-control" ng-model="data.standardInfo.standardDate" data-date-format="yyyy-MM-dd"
+                               data-autoclose="1" placeholder="Date" bs-datepicker type="text" data-popup-placement="bottom:25px;">
+                    </div>
+
+                    <div class="form-group col-md-3">
+                        <input type="text" class="form-control" placeholder="" ng-model="data.standardInfo.standardDate"  data-time-format="HH:mm:ss" data-length="3" data-autoclose="1" placeholder="Time" bs-timepicker  data-arrow-behavior="picker"/>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group col-md-12 col-sm-6">
+                <label class="col-md-3 control-label">链接:</label>
+
+                <div class="col-md-8">
+                    <input type="text" class="form-control" ng-model="data.standardInfo.standardUrl" required
+                           placeholder="链接"/>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="modal-footer text-center">
+        <button class="btn btn-primary width100" type="submit" ng-click="ok(myForm)">确定</button>
+        <button class="btn btn-warning width100" type="button" ng-click="cancel()">取消</button>
+    </div>
+
+</div>    
